@@ -48,7 +48,9 @@ export default function ContactPage() {
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text font-medium">Number of Guests</span>
+                  <span className="label-text font-medium">
+                    Number of Guests
+                  </span>
                 </label>
                 <input
                   type="number"
@@ -80,7 +82,7 @@ export default function ContactPage() {
             </div>
           </>
         );
-      
+
       case 'reservations':
         return (
           <>
@@ -126,7 +128,9 @@ export default function ContactPage() {
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text font-medium">Special Occasion</span>
+                  <span className="label-text font-medium">
+                    Special Occasion
+                  </span>
                 </label>
                 <select
                   name="occasion"
@@ -144,14 +148,16 @@ export default function ContactPage() {
             </div>
           </>
         );
-      
+
       case 'careers':
         return (
           <>
             <div className="grid sm:grid-cols-2 gap-4">
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text font-medium">Position of Interest</span>
+                  <span className="label-text font-medium">
+                    Position of Interest
+                  </span>
                 </label>
                 <select
                   name="position"
@@ -170,7 +176,9 @@ export default function ContactPage() {
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text font-medium">Years of Experience</span>
+                  <span className="label-text font-medium">
+                    Years of Experience
+                  </span>
                 </label>
                 <input
                   type="number"
@@ -201,7 +209,7 @@ export default function ContactPage() {
             </div>
           </>
         );
-      
+
       case 'feedback':
         return (
           <div className="form-control">
@@ -217,7 +225,7 @@ export default function ContactPage() {
             />
           </div>
         );
-      
+
       default:
         return null;
     }
