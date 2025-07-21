@@ -17,3 +17,6 @@ dist/
 # Ignore log files
 *.log
 .github/instructions/
+
+# Ignore Vscode workspace settings
+.vscode/
