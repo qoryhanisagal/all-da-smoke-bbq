@@ -13,6 +13,7 @@ import Menu from './pages/Menu/Menu';
 import Gallery from './pages/GalleryPage';
 import Catering from './pages/CateringPage';
 import Newsletter from './pages/NewsletterPage';
+import PitMaster from './pages/PitMasterPage/PitMaster';
 import './index.css'; // Tailwind CSS styles
 
 // Global styles and icons
@@ -39,6 +40,7 @@ function App() {
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/catering" element={<Catering />} />
           <Route path="/newsletter" element={<Newsletter />} />
+          <Route path="/pitmasters" element={<PitMaster />} />
         </Route>
       </Routes>
     </>
