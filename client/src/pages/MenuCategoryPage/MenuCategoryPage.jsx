@@ -2,102 +2,52 @@ import { useParams, Link } from 'react-router-dom';
 import HeroLayout from '../../components/HeroLayout/HeroLayout';
 import { heroBackgrounds } from '../../data/backgroundImages';
 
-// Mock data for different categories
-const categoryData = {
-  'bbq-sandwiches': {
-    title: 'BBQ Sandwiches',
-    description: 'Tender, slow-smoked meats piled high on fresh buns with our signature sauces',
-    items: [
-      {
-        id: 'beef-brisket',
-        name: 'Beef Brisket Sandwich',
-        description: 'Slow-smoked for 14 hours, sliced thick and piled high',
-        price: '$12.99',
-        image: 'https://picsum.photos/400/300?random=1',
-        popular: true
-      },
-      {
-        id: 'pulled-pork',
-        name: 'Pulled Pork Sandwich',
-        description: 'Tender pork shoulder, hand-pulled and seasoned to perfection',
-        price: '$11.99',
-        image: 'https://picsum.photos/400/300?random=2'
-      },
-      {
-        id: 'smoked-chicken',
-        name: 'Smoked Chicken Sandwich',
-        description: 'Juicy smoked chicken breast with your choice of sauce',
-        price: '$10.99',
-        image: 'https://picsum.photos/400/300?random=3'
-      },
-      {
-        id: 'burnt-ends',
-        name: 'Burnt Ends Sandwich',
-        description: 'Cubed brisket burnt ends with our signature glaze',
-        price: '$13.99',
-        image: 'https://picsum.photos/400/300?random=4',
-        popular: true
-      }
-    ]
-  },
-  'bbq-plates': {
-    title: 'BBQ Plates',
-    description: 'Full meals with your choice of meat, two sides, and cornbread',
-    items: [
-      {
-        id: 'brisket-plate',
-        name: 'Brisket Plate',
-        description: 'Sliced brisket with two sides and cornbread',
-        price: '$16.99',
-        image: 'https://picsum.photos/400/300?random=5',
-        popular: true
-      },
-      {
-        id: 'ribs-plate',
-        name: 'Baby Back Ribs',
-        description: 'Half rack of tender ribs with two sides',
-        price: '$18.99',
-        image: 'https://picsum.photos/400/300?random=6'
-      },
-      {
-        id: 'combo-plate',
-        name: 'BBQ Combo Plate',
-        description: 'Choice of two meats with two sides and cornbread',
-        price: '$19.99',
-        image: 'https://picsum.photos/400/300?random=7',
-        popular: true
-      }
-    ]
-  },
-  'sides': {
-    title: 'Sides',
-    description: 'Traditional BBQ sides made from scratch daily',
-    items: [
-      {
-        id: 'mac-cheese',
-        name: 'Mac & Cheese',
-        description: 'Creamy three-cheese macaroni',
-        price: '$4.99',
-        image: 'https://picsum.photos/400/300?random=8'
-      },
-      {
-        id: 'coleslaw',
-        name: 'Coleslaw',
-        description: 'Fresh, crispy coleslaw with tangy dressing',
-        price: '$3.99',
-        image: 'https://picsum.photos/400/300?random=9'
-      },
-      {
-        id: 'baked-beans',
-        name: 'Baked Beans',
-        description: 'Slow-cooked beans with brown sugar and bacon',
-        price: '$4.49',
-        image: 'https://picsum.photos/400/300?random=10',
-        popular: true
-      }
-    ]
-  }
+// Import actual menu data
+import menu from '../../data/menu';
+import categories from '../../data/categories';
+
+// Create category data structure from existing menu data
+const createCategoryData = () => {
+  const categorySlugMap = {
+    'signature-bbq': 'SIGNATURE BBQ',
+    'bbq-sandwiches': 'BBQ SANDWICHES',
+    'lunch-plates': 'PITMASTER LUNCH PLATES',
+    'bbq-by-pound': 'BBQ BY THE POUND',
+    'family-meals': 'FAMILY MEALS',
+    'fresh-bites': 'FRESH BITES',
+    'pitmaster-picks': 'PITMASTER PICKS',
+    'sides': 'SIDEKICKS',
+    'desserts': 'DESSERTS',
+    'beverages': 'BEVERAGES',
+    'sauces-rubs': 'SAUCES & RUBS'
+  };
+
+  const categoryData = {};
+  
+  Object.entries(categorySlugMap).forEach(([slug, categoryName]) => {
+    const category = categories.find(cat => cat.name === categoryName);
+    const categoryItems = menu.filter(item => item.category === categoryName);
+    
+    if (category && categoryItems.length > 0) {
+      categoryData[slug] = {
+        title: category.name,
+        description: category.description,
+        items: categoryItems.map((item, index) => ({
+          id: item.name.toLowerCase().replace(/[^a-z0-9]/g, '-'),
+          name: item.name,
+          description: item.description,
+          price: typeof item.price === 'number' ? `$${item.price.toFixed(2)}` : item.price,
+          image: `https://picsum.photos/400/300?random=${Math.floor(Math.random() * 100) + 1}`,
+          popular: Math.random() > 0.7 // Randomly mark some items as popular
+        }))
+      };
+    }
+  });
+  
+  return categoryData;
 };
+
+const categoryData = createCategoryData();
 
 export default function MenuCategoryPage() {
   const { category } = useParams();
