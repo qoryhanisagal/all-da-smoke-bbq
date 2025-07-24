@@ -31,8 +31,8 @@ export default function Navbar() {
           <div className="hidden lg:flex gap-6 items-center font-[var(--font-anton)] text-white uppercase tracking-wide">
             <Link to="/gallery" className="hover:text-primary transition-colors duration-200 text-lg font-bold">Gallery</Link>
             <Link to="/contact" className="hover:text-primary transition-colors duration-200 text-lg font-bold">Contact</Link>
-            <Link to="/login" className="hover:text-primary transition-colors duration-200 text-lg font-bold">Sign In</Link>
-            <Link to="/vip" className="hover:text-primary transition-colors duration-200 text-lg font-bold">Become a VIP</Link>
+            <Link to="/faqs" className="hover:text-primary transition-colors duration-200 text-lg font-bold">FAQs</Link>
+            <Link to="/newsletter" className="hover:text-primary transition-colors duration-200 text-lg font-bold">Newsletter</Link>
             
             {/* Cart */}
             <div className="dropdown dropdown-end">

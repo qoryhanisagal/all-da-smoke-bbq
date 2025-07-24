@@ -33,8 +33,8 @@ const ImageGallery = ({ images }) => {
                 {image.category}
               </div>
               {/* Overlay on hover */}
-              <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
-                <i className="bi bi-zoom-in text-white text-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></i>
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 group-hover:bg-neutral group-hover:bg-opacity-50 transition-all duration-300 flex items-center justify-center">
+                <i className="bi bi-zoom-in text-neutral-content text-2xl"></i>
               </div>
             </figure>
 
@@ -59,14 +59,18 @@ const ImageGallery = ({ images }) => {
                 className="w-full h-auto rounded-lg"
               />
               <button
-                className="btn btn-circle btn-sm absolute top-4 right-4 bg-black bg-opacity-50 border-none text-white hover:bg-opacity-70"
+                className="btn btn-circle btn-sm absolute top-4 right-4 bg-base-300 bg-opacity-50 border-none text-base-content hover:bg-opacity-70"
                 onClick={closeModal}
               >
                 <i className="bi bi-x text-lg"></i>
               </button>
-              <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-white p-4 rounded-b-lg">
-                <h3 className="text-lg font-stardos-stencil-bold">{selectedImage.title}</h3>
-                <p className="text-sm font-stardos-stencil-normal opacity-90">{selectedImage.category}</p>
+              <div className="absolute bottom-0 left-0 right-0 bg-base-300 bg-opacity-70 text-base-content p-4 rounded-b-lg">
+                <h3 className="text-lg font-stardos-stencil-bold">
+                  {selectedImage.title}
+                </h3>
+                <p className="text-sm font-stardos-stencil-normal opacity-90">
+                  {selectedImage.category}
+                </p>
               </div>
             </div>
           </div>

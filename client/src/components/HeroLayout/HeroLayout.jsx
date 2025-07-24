@@ -1,12 +1,14 @@
+import { contentBackgrounds } from '../../data/backgroundImages';
+
 export default function HeroLayout({
   heroImage,
   heroTitle,
   heroSubtitle,
-  contentBackgroundImage,
-  heroTitleClass = 'text-accent text-left font-stardos-stencil-bold',
-  heroSubtitleClass = 'text-left font-stardos-stencil-normal text-accent-content',
+  contentBackgroundImage = contentBackgrounds.woodTexture,
+  heroTitleClass = 'text-accent text-left font-stardos-stencil-bold whitespace-nowrap text-3xl sm:text-4xl lg:text-5xl px-4',
+  heroSubtitleClass = 'text-left font-stardos-stencil-normal text-accent-content max-w-2xl leading-relaxed text-lg lg:text-xl',
   featuredImage = '/src/assets/img/page-stamp.png',
-  allowStacking = true, // Prop to control stacking behavior
+  allowStacking = false, // Prop to control stacking behavior
   contentAlignment = 'left', // Prop for main content alignment
   children,
 }) {
@@ -83,9 +85,9 @@ export default function HeroLayout({
             }}
           >
             {/* Semi-transparent overlay to make text readable over background image */}
-            {/* bg-base-100/70 means use the theme's base background color at 70% opacity */}
+            {/* bg-base-100/30 means use the theme's base background color at 30% opacity */}
             <div
-              className={`bg-base-100/70 min-h-screen p-4 lg:p-8 ${
+              className={`bg-base-100/30 min-h-screen p-4 lg:p-8 ${
                 contentAlignment === 'left'
                   ? 'text-left'
                   : contentAlignment === 'right'

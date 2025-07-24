@@ -3,7 +3,7 @@ const TopBanner = () => {
     <div className="w-full bg-gradient-to-bl from-accent via-secondary to-primary text-base-content text-sm px-0 py-0 overflow-x-hidden">
       <div className="flex justify-evenly items-center gap-x-1 w-full px-0">
         {/* Social Icons */}
-        <div className="bg-gradient-to-tr from-accent via-secondary to-primary pl-4 pr-6 py-2 flex items-center space-x-3 text-primary-content">
+        <div className="pl-4 pr-6 py-2 flex items-center space-x-3 text-primary-content">
           <i className="bi bi-facebook"></i>
           <i className="bi bi-twitter"></i>
           <i className="bi bi-instagram"></i>

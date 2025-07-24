@@ -13,7 +13,6 @@ const GalleryPage = () => {
         heroImage={heroBackgrounds.hero1}
         heroTitle="Our Gallery"
         heroSubtitle="Take a visual journey through our BBQ experience. From smoky kitchens to satisfied smiles, see what makes All Da Smoke special."
-        contentBackgroundImage={contentBackgrounds.woodTexture}
         allowStacking={false}
       >
         <div className="container mx-auto max-w-7xl px-4 py-8">

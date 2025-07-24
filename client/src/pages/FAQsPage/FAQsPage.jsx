@@ -1,19 +1,17 @@
 import FAQs from '../../components/FAQs/FAQs';
 import HeroLayout from '../../components/HeroLayout/HeroLayout';
 import { menuFAQs, cateringFAQs, generalFAQs } from '../../data/faqs';
-import {
-  heroBackgrounds,
-  contentBackgrounds,
-} from '../../data/backgroundImages';
+import { heroBackgrounds } from '../../data/backgroundImages';
 
 export default function FAQsPage() {
   return (
     <div data-theme="lofi">
       <HeroLayout
-        allowStacking={false}
+        allowStacking={true}
         heroImage={heroBackgrounds.hero1}
         heroTitle="Frequently Asked Questions"
         heroSubtitle="Find answers to commonly asked questions about our BBQ, menu, catering, and more."
+        heroTitleClass="text-accent text-left font-stardos-stencil-bold text-2xl sm:text-3xl lg:text-4xl px-4"
       >
         {/* FAQ Sections */}
         <div className="container mx-auto px-4 py-8 space-y-16 text-left">

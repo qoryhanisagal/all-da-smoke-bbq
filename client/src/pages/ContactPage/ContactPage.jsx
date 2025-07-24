@@ -1,8 +1,5 @@
 import HeroLayout from '../../components/HeroLayout/HeroLayout';
-import {
-  heroBackgrounds,
-  contentBackgrounds,
-} from '../../data/backgroundImages';
+import { heroBackgrounds } from '../../data/backgroundImages';
 import { useState } from 'react';
 
 export default function ContactPage() {
