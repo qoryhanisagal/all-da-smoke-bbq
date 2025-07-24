@@ -1,5 +1,7 @@
 import { useParams, Link } from 'react-router-dom';
 import HeroLayout from '../../components/HeroLayout/HeroLayout';
+import Breadcrumb from '../../components/Breadcrumb';
+import MenuItemGrid from '../../components/MenuItemGrid';
 import { heroBackgrounds } from '../../data/backgroundImages';
 
 // Import actual menu data
@@ -63,14 +65,24 @@ export default function MenuCategoryPage() {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
+          <i className="bi bi-exclamation-triangle text-6xl text-warning mb-4"></i>
           <h1 className="text-4xl font-bold mb-4">Category Not Found</h1>
+          <p className="text-lg text-base-content/70 mb-6">The category you're looking for doesn't exist.</p>
           <Link to="/menu" className="btn btn-primary">
+            <i className="bi bi-arrow-left mr-2"></i>
             Back to Menu
           </Link>
         </div>
       </div>
     );
   }
+
+  // Breadcrumb items
+  const breadcrumbItems = [
+    { label: 'Home', href: '/', icon: 'bi-house' },
+    { label: 'Menu', href: '/menu', icon: 'bi-list-ul' },
+    { label: categoryInfo.title, icon: 'bi-tag' }
+  ];
 
   return (
     <div>
@@ -81,13 +93,7 @@ export default function MenuCategoryPage() {
       >
         <div className="container mx-auto px-4 py-16">
           {/* Breadcrumb */}
-          <div className="breadcrumbs text-sm mb-8">
-            <ul>
-              <li><Link to="/" className="link link-hover">Home</Link></li>
-              <li><Link to="/menu" className="link link-hover">Menu</Link></li>
-              <li className="opacity-70">{categoryInfo.title}</li>
-            </ul>
-          </div>
+          <Breadcrumb items={breadcrumbItems} />
 
           {/* Category Header */}
           <div className="text-center mb-12">
@@ -98,48 +104,12 @@ export default function MenuCategoryPage() {
           </div>
 
           {/* Menu Items Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {categoryInfo.items.map((item) => (
-              <div key={item.id} className="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow">
-                <figure className="relative">
-                  <img 
-                    src={item.image} 
-                    alt={item.name}
-                    className="w-full h-48 object-cover"
-                  />
-                  {item.popular && (
-                    <div className="badge badge-primary badge-lg absolute top-4 right-4">
-                      Popular
-                    </div>
-                  )}
-                </figure>
-                <div className="card-body">
-                  <h3 className="card-title text-xl">{item.name}</h3>
-                  <p className="text-base-content/70 mb-4">{item.description}</p>
-                  
-                  <div className="flex justify-between items-center">
-                    <span className="text-2xl font-bold text-primary">{item.price}</span>
-                    <div className="card-actions">
-                      <Link 
-                        to={`/menu/${category}/${item.id}`}
-                        className="btn btn-primary btn-sm"
-                      >
-                        View Details
-                      </Link>
-                      <button className="btn btn-outline btn-sm">
-                        Add to Cart
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+          <MenuItemGrid items={categoryInfo.items} category={category} />
 
           {/* Back to Menu Button */}
           <div className="text-center mt-16">
             <Link to="/menu" className="btn btn-outline btn-lg">
-              <i className="bi bi-arrow-left mr-2"></i>
+              <i className="bi bi-caret-left-fill mr-2"></i>
               Back to Full Menu
             </Link>
           </div>

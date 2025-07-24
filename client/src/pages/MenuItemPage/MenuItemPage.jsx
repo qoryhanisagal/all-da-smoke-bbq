@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import HeroLayout from '../../components/HeroLayout/HeroLayout';
+import Breadcrumb from '../../components/Breadcrumb';
 import { heroBackgrounds } from '../../data/backgroundImages';
 
 // Mock data for menu items (this would typically come from an API)
@@ -97,8 +98,11 @@ export default function MenuItemPage() {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
+          <i className="bi bi-exclamation-triangle text-6xl text-warning mb-4"></i>
           <h1 className="text-4xl font-bold mb-4">Item Not Found</h1>
+          <p className="text-lg text-base-content/70 mb-6">The menu item you're looking for doesn't exist.</p>
           <Link to="/menu" className="btn btn-primary">
+            <i className="bi bi-arrow-left mr-2"></i>
             Back to Menu
           </Link>
         </div>
@@ -117,6 +121,18 @@ export default function MenuItemPage() {
     return total * quantity;
   };
 
+  // Breadcrumb items
+  const breadcrumbItems = [
+    { label: 'Home', href: '/', icon: 'bi-house' },
+    { label: 'Menu', href: '/menu', icon: 'bi-list-ul' },
+    { 
+      label: category.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase()), 
+      href: `/menu/${category}`, 
+      icon: 'bi-tag' 
+    },
+    { label: itemData.name, icon: 'bi-bookmark' }
+  ];
+
   return (
     <div>
       <HeroLayout
@@ -126,16 +142,7 @@ export default function MenuItemPage() {
       >
         <div className="container mx-auto px-4 py-16">
           {/* Breadcrumb */}
-          <div className="breadcrumbs text-sm mb-8">
-            <ul>
-              <li><Link to="/" className="link link-hover">Home</Link></li>
-              <li><Link to="/menu" className="link link-hover">Menu</Link></li>
-              <li><Link to={`/menu/${category}`} className="link link-hover">
-                {category.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())}
-              </Link></li>
-              <li className="opacity-70">{itemData.name}</li>
-            </ul>
-          </div>
+          <Breadcrumb items={breadcrumbItems} />
 
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Image Gallery */}
@@ -305,7 +312,7 @@ export default function MenuItemPage() {
           {/* Back Button */}
           <div className="text-center mt-16">
             <Link to={`/menu/${category}`} className="btn btn-outline btn-lg">
-              <i className="bi bi-arrow-left mr-2"></i>
+              <i className="bi bi-caret-left-fill mr-2"></i>
               Back to {category.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())}
             </Link>
           </div>
