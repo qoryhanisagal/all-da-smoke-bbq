@@ -3,11 +3,11 @@ export default function HeroLayout({
   heroTitle,
   heroSubtitle,
   contentBackgroundImage,
-  heroTitleClass,
-  heroSubtitleClass,
+  heroTitleClass = 'text-accent text-left font-stardos-stencil-bold',
+  heroSubtitleClass = 'text-left font-stardos-stencil-normal text-accent-content',
   featuredImage = '/src/assets/img/page-stamp.png',
-  allowStacking = true, // New prop to control stacking behavior
-  contentAlignment = 'center', // Prop for main content alignment
+  allowStacking = true, // Prop to control stacking behavior
+  contentAlignment = 'left', // Prop for main content alignment
   children,
 }) {
   return (
