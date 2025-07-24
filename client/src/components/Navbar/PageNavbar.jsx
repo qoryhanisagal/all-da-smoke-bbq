@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import { useState } from 'react';
-import logo from '/src/assets/img/logo1.png';
+import logo from '../../assets/img/logo1.png';
 
 export default function PageNavbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -139,6 +139,7 @@ export default function PageNavbar() {
           </Link>
         </div>
       </div>
+
     </>
   );
 }

@@ -1,7 +1,13 @@
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import logo from '/src/assets/img/logo1.png';
 
 export default function Navbar() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
   return (
     <>
       <div className="navbar sticky top-0 z-40 bg-black px-6 py-4">
@@ -75,53 +81,78 @@ export default function Navbar() {
 
           {/* Mobile Menu Button */}
           <div className="lg:hidden">
-            <button className="btn btn-ghost text-white">
-              <i className="bi bi-list text-2xl"></i>
+            <button 
+              className="btn btn-ghost text-white"
+              onClick={toggleMobileMenu}
+            >
+              <i className={`bi ${isMobileMenuOpen ? 'bi-x' : 'bi-list'} text-2xl`}></i>
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Menu - Hidden by default, toggle with state */}
-      <div className="lg:hidden hidden bg-black text-white">
+      {/* Mobile Menu - Toggle with state */}
+      <div className={`lg:hidden ${isMobileMenuOpen ? 'block' : 'hidden'} bg-black text-white shadow-lg border-t border-gray-700`}>
         <div className="flex flex-col p-4 space-y-3 font-[var(--font-anton)] uppercase text-sm">
-          <Link to="/menu" className="hover:text-primary transition-colors">Our Menu</Link>
-          <Link to="/order" className="btn btn-primary btn-sm rounded-full w-fit">Order Online</Link>
-          <Link to="/catering" className="hover:text-primary transition-colors">Catering</Link>
-          <Link to="/gallery" className="hover:text-primary transition-colors">Gallery</Link>
-          <Link to="/contact" className="hover:text-primary transition-colors">Contact</Link>
-          <Link to="/login" className="hover:text-primary transition-colors">Sign In</Link>
-          <Link to="/vip" className="hover:text-primary transition-colors">Become a VIP</Link>
+          <Link 
+            to="/menu" 
+            className="hover:text-primary transition-colors"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Our Menu
+          </Link>
+          <Link 
+            to="/order" 
+            className="btn btn-primary btn-sm rounded-full w-fit"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Order Online
+          </Link>
+          <Link 
+            to="/about" 
+            className="hover:text-primary transition-colors"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Our Story
+          </Link>
+          <Link 
+            to="/catering" 
+            className="hover:text-primary transition-colors"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Catering
+          </Link>
+          <Link 
+            to="/gallery" 
+            className="hover:text-primary transition-colors"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Gallery
+          </Link>
+          <Link 
+            to="/contact" 
+            className="hover:text-primary transition-colors"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Contact
+          </Link>
+          <Link 
+            to="/faqs" 
+            className="hover:text-primary transition-colors"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            FAQs
+          </Link>
+          <Link 
+            to="/newsletter" 
+            className="hover:text-primary transition-colors"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Newsletter
+          </Link>
         </div>
       </div>
 
-      {/* Mobile Dock Navigation */}
-      <div className="dock dock-md lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-base-100 shadow-md border-t border-base-300">
-        <Link to="/" className="btn btn-ghost">
-          <i className="bi bi-house text-xl text-primary"></i>
-          <span className="dock-label text-xs">Home</span>
-        </Link>
-        <Link to="/chefs" className="btn btn-ghost">
-          <i className="bi bi-people text-xl text-primary"></i>
-          <span className="dock-label text-xs">Chefs</span>
-        </Link>
-        <Link to="/menu" className="btn btn-ghost">
-          <i className="bi bi-list text-xl text-primary"></i>
-          <span className="dock-label text-xs">Menu</span>
-        </Link>
-        <Link to="/pickup" className="btn btn-ghost">
-          <i className="bi bi-bag-check text-xl text-primary"></i>
-          <span className="dock-label text-xs">Pickup</span>
-        </Link>
-        <Link to="/delivery" className="btn btn-ghost">
-          <i className="bi bi-car-front-fill text-xl text-primary"></i>
-          <span className="dock-label text-xs">Delivery</span>
-        </Link>
-        <Link to="/catering" className="btn btn-ghost">
-          <i className="bi bi-fork-knife text-xl text-primary"></i>
-          <span className="dock-label text-xs">Catering</span>
-        </Link>
-      </div>
     </>
   );
 }

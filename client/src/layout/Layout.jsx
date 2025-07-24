@@ -2,6 +2,7 @@ import { Outlet, useLocation } from 'react-router-dom';
 import Banner from '../components/Banner';
 import Navbar from '../components/Navbar';
 import PageNavbar from '../components/Navbar/PageNavbar';
+import MobileDock from '../components/MobileDock/MobileDock';
 import Footer from '../components/Footer';
 
 const Layout = () => {
@@ -22,6 +23,7 @@ const Layout = () => {
         </div>
 
         <Footer />
+        <MobileDock />
       </div>
     </>
   );
