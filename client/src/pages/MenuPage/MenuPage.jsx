@@ -114,7 +114,7 @@ const MenuPage = () => {
             onClose={() => setSelectedItem(null)}
           />
           {/* To show menu FAQs, uncomment the line below */}
-          {/* <FAQs faqs={menuFAQs} title="Menu FAQs" /> */}
+          <FAQs faqs={menuFAQs} title="Menu FAQs" />
         </div>
       </HeroLayout>
     </div>

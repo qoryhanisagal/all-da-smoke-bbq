@@ -238,9 +238,6 @@ export default function ContactPage() {
         heroImage={heroBackgrounds.hero1}
         heroTitle="Contact Us"
         heroSubtitle="We'd love to hear from you. Send us a message and we'll respond as soon as possible."
-        contentBackgroundImage={contentBackgrounds.woodTexture}
-        heroTitleClass="text-accent text-center font-stardos-stencil-bold"
-        heroSubtitleClass="text-primary-content font-stardos-stencil-normal text-accent-content"
       >
         <div className="container mx-auto px-4 py-12">
           {/* Contact Form and Info Grid */}

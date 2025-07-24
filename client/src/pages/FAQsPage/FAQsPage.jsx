@@ -14,10 +14,6 @@ export default function FAQsPage() {
         heroImage={heroBackgrounds.hero1}
         heroTitle="Frequently Asked Questions"
         heroSubtitle="Find answers to commonly asked questions about our BBQ, menu, catering, and more."
-        contentBackgroundImage={contentBackgrounds.woodTexture}
-        contentAlignment="left"
-        heroTitleClass="text-accent text-left font-stardos-stencil-bold"
-        heroSubtitleClass="text-left font-stardos-stencil-normal text-accent-content"
       >
         {/* FAQ Sections */}
         <div className="container mx-auto px-4 py-8 space-y-16 text-left">
