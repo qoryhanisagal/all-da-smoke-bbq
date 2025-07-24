@@ -28,15 +28,21 @@ const createCategoryData = () => {
     const category = categories.find(cat => cat.name === categoryName);
     const categoryItems = menu.filter(item => item.category === categoryName);
     
+    // Debug logging
+    console.log(`Category: ${categoryName}, Items found: ${categoryItems.length}`);
+    if (categoryItems.length > 0) {
+      console.log('Sample item:', categoryItems[0]);
+    }
+    
     if (category && categoryItems.length > 0) {
       categoryData[slug] = {
         title: category.name,
         description: category.description,
         items: categoryItems.map((item, index) => ({
-          id: item.name.toLowerCase().replace(/[^a-z0-9]/g, '-'),
-          name: item.name,
-          description: item.description,
-          price: typeof item.price === 'number' ? `$${item.price.toFixed(2)}` : item.price,
+          id: item.name ? item.name.toLowerCase().replace(/[^a-z0-9]/g, '-') : `item-${index}`,
+          name: item.name || 'Unknown Item',
+          description: item.description || 'No description available',
+          price: typeof item.price === 'number' ? `$${item.price.toFixed(2)}` : (item.price || 'Price not available'),
           image: `https://picsum.photos/400/300?random=${Math.floor(Math.random() * 100) + 1}`,
           popular: Math.random() > 0.7 // Randomly mark some items as popular
         }))
