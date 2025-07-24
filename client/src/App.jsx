@@ -15,6 +15,7 @@ import Catering from './pages/CateringPage';
 import Newsletter from './pages/NewsletterPage';
 import PitMaster from './pages/PitMasterPage/PitMaster';
 import MenuCategoryPage from './pages/MenuCategoryPage';
+import MenuItemPage from './pages/MenuItemPage';
 import './index.css'; // Tailwind CSS styles
 
 // Global styles and icons
@@ -43,6 +44,7 @@ function App() {
           <Route path="/newsletter" element={<Newsletter />} />
           <Route path="/pitmasters" element={<PitMaster />} />
           <Route path="/menu/:category" element={<MenuCategoryPage />} />
+          <Route path="/menu/:category/:item" element={<MenuItemPage />} />
         </Route>
       </Routes>
     </>
