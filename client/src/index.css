@@ -1,13 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 @import 'tailwindcss';
 @plugin "daisyui";
-
+/* Makes the font available globally via var() */
 @theme {
-  --font-anton:
-    'Anton', sans-serif; /* Makes the font available globally via var() */
-  --font-great-vibes:
-    'Great Vibes', cursive; /* Makes the font available globally via var() */
+  --font-anton: 'Anton', sans-serif;
+  --font-great-vibes: 'Great Vibes', sans-serif;
+  --font-stardos-stencil: 'Stardos Stencil', sans-serif;
 }
 
 /* === DARK THEME: 'black' === */
@@ -16,9 +13,6 @@
   default: true;
   prefersdark: true;
   color-scheme: 'dark';
-
-  --font-anton: 'Anton', sans-serif;
-  --font-great-vibes: 'Great Vibes', cursive;
 
   /* === Backgrounds === */
   --color-base-100: oklch(0% 0 0); /* Main background (pure black) */
@@ -35,7 +29,7 @@
   /* === Primary (buttons, headings) === */
   --color-primary: oklch(
     40.17% 0.1447 26.01
-  ); /* Red brand color (from #F31212) */
+  ); /* Red brand color (from #851719) */
   --color-primary-content: oklch(100% 0 0); /* White text on primary */
 
   /* === Secondary (supportive red or hover) === */
@@ -143,22 +137,31 @@
 
 /* === Global Styles === */ /* === CUSTOM UTILITY CLASSES === */
 @layer utilities {
-  .font-anton-bold {
-    font-family: var(--font-anton);
-    font-weight: 700;
-  }
-
+  /* Anton font utilities */
   .font-anton-normal {
     font-family: var(--font-anton);
     font-weight: 400;
   }
 
+  .font-anton-bold {
+    font-family: var(--font-anton);
+    font-weight: 700;
+  }
+
+  /* Great Vibes font utilities */
   .font-great-vibes {
     font-family: var(--font-great-vibes);
     font-weight: 400;
   }
 
-  .text-anton {
-    font-family: var(--font-anton);
+  /* Stardos Stencil font utilities */
+  .font-stardos-stencil-normal {
+    font-family: var(--font-stardos-stencil);
+    font-weight: 400;
+  }
+
+  .font-stardos-stencil-bold {
+    font-family: var(--font-stardos-stencil);
+    font-weight: 700;
   }
 }

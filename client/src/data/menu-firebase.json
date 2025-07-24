@@ -1,0 +1,251 @@
+{
+  "menu": {
+    "product_001": {
+      "id": 1,
+      "title": "BBQ Street Corn Dip",
+      "description": "A smoky, creamy blend of roasted corn, red onion, red pepper, tomato, and spices",
+      "price": 8.99,
+      "image": "https://picsum.photos/400/300?random=1",
+      "category": "SIDEKICKS",
+      "isNew": true,
+      "featured": false,
+      "tags": ["Popular", "Vegetarian"],
+      "slug": "bbq-street-corn-dip",
+      "availability": {
+        "pickup": true,
+        "delivery": true,
+        "catering": true
+      }
+    },
+    "product_002": {
+      "id": 2,
+      "title": "Seasonal Wings",
+      "description": "Our Smoked Wings tossed in a Tennessee Vinegar or Sonny's signature sauce",
+      "price": 12.99,
+      "image": "https://picsum.photos/400/300?random=2",
+      "category": "SIGNATURE BBQ",
+      "isNew": true,
+      "featured": true,
+      "tags": ["New", "Spicy"],
+      "slug": "seasonal-wings",
+      "availability": {
+        "pickup": true,
+        "delivery": true,
+        "catering": true
+      }
+    },
+    "product_003": {
+      "id": 3,
+      "title": "BBQ Wedge",
+      "description": "Iceberg lettuce topped with blue cheese, bacon crumbles, red onions, and BBQ drizzle",
+      "price": 9.99,
+      "image": "https://picsum.photos/400/300?random=3",
+      "category": "FRESH BITES",
+      "isNew": true,
+      "featured": false,
+      "tags": ["Fresh", "Salad"],
+      "slug": "bbq-wedge",
+      "availability": {
+        "pickup": true,
+        "delivery": true,
+        "catering": false
+      }
+    },
+    "product_004": {
+      "id": 4,
+      "title": "Classic Brisket",
+      "description": "Slow-smoked beef brisket with our signature dry rub",
+      "price": 16.99,
+      "image": "https://picsum.photos/400/300?random=4",
+      "category": "SIGNATURE BBQ",
+      "isNew": false,
+      "featured": true,
+      "tags": ["Signature", "Classic"],
+      "slug": "classic-brisket",
+      "availability": {
+        "pickup": true,
+        "delivery": true,
+        "catering": true
+      }
+    },
+    "product_005": {
+      "id": 5,
+      "title": "Smoked Ribs",
+      "description": "Fall-off-the-bone pork ribs with tangy BBQ sauce",
+      "price": 18.99,
+      "image": "https://picsum.photos/400/300?random=5",
+      "category": "SIGNATURE BBQ",
+      "isNew": false,
+      "featured": true,
+      "tags": ["Popular", "House Special"],
+      "slug": "smoked-ribs",
+      "availability": {
+        "pickup": true,
+        "delivery": true,
+        "catering": true
+      }
+    },
+    "product_006": {
+      "id": 6,
+      "title": "Mac & Cheese",
+      "description": "Creamy three-cheese blend with crispy breadcrumb topping",
+      "price": 7.99,
+      "image": "https://picsum.photos/400/300?random=6",
+      "category": "SIDEKICKS",
+      "isNew": false,
+      "featured": false,
+      "tags": ["Comfort Food", "Vegetarian"],
+      "slug": "mac-and-cheese",
+      "availability": {
+        "pickup": true,
+        "delivery": true,
+        "catering": true
+      }
+    },
+    "product_007": {
+      "id": 7,
+      "title": "Sweet Tea",
+      "description": "Southern-style sweet tea brewed fresh daily",
+      "price": 2.99,
+      "image": "https://picsum.photos/400/300?random=7",
+      "category": "BEVERAGES",
+      "isNew": false,
+      "featured": false,
+      "tags": ["Refreshing", "Traditional"],
+      "slug": "sweet-tea",
+      "availability": {
+        "pickup": true,
+        "delivery": true,
+        "catering": true
+      }
+    },
+    "product_008": {
+      "id": 8,
+      "title": "Peach Cobbler",
+      "description": "Warm peach cobbler with vanilla ice cream",
+      "price": 6.99,
+      "image": "https://picsum.photos/400/300?random=8",
+      "category": "DESSERTS",
+      "isNew": false,
+      "featured": false,
+      "tags": ["Dessert", "Homemade"],
+      "slug": "peach-cobbler",
+      "availability": {
+        "pickup": true,
+        "delivery": true,
+        "catering": true
+      }
+    },
+    "product_009": {
+      "id": 9,
+      "title": "Pulled Pork Sandwich",
+      "description": "Tender pulled pork with coleslaw on a brioche bun",
+      "price": 11.99,
+      "image": "https://picsum.photos/400/300?random=9",
+      "category": "BBQ SANDWICHES",
+      "isNew": false,
+      "featured": true,
+      "tags": ["Popular"],
+      "slug": "pulled-pork-sandwich",
+      "availability": {
+        "pickup": true,
+        "delivery": true,
+        "catering": true
+      }
+    },
+    "product_010": {
+      "id": 10,
+      "title": "Family Feast",
+      "description": "Serves 4-6 people with choice of 3 meats and 3 sides",
+      "price": 49.99,
+      "image": "https://picsum.photos/400/300?random=10",
+      "category": "FAMILY MEALS",
+      "isNew": false,
+      "featured": true,
+      "tags": ["Great Value", "Sharing"],
+      "slug": "family-feast",
+      "availability": {
+        "pickup": true,
+        "delivery": true,
+        "catering": false
+      }
+    }
+  },
+  "cateringPackages": {
+    "package_001": {
+      "description": "Catering package to serve up to 10 people",
+      "includes": [
+        "2 proteins",
+        "2 sides",
+        "1 drink"
+      ],
+      "name": "Feed 10",
+      "price": 129.99,
+      "servingSize": 10
+    },
+    "package_002": {
+      "description": "Catering package to serve up to 25 people",
+      "includes": [
+        "4 proteins",
+        "3 sides",
+        "2 drinks"
+      ],
+      "name": "Feed 25",
+      "price": 299.99,
+      "servingSize": 25
+    },
+    "package_003": {
+      "description": "Catering package to serve up to 50 people",
+      "includes": [
+        "6 proteins",
+        "4 sides",
+        "3 drinks"
+      ],
+      "name": "Feed 50",
+      "price": 579.99,
+      "servingSize": 50
+    }
+  },
+  "categories": {
+    "signature-bbq": {
+      "name": "SIGNATURE BBQ",
+      "description": "Classic slow-smoked meats: St. Louis ribs, brisket, pulled pork, chicken, and more.",
+      "displayOrder": 1
+    },
+    "bbq-sandwiches": {
+      "name": "BBQ SANDWICHES",
+      "description": "Handcrafted smoked meats served on fresh buns.",
+      "displayOrder": 2
+    },
+    "sidekicks": {
+      "name": "SIDEKICKS",
+      "description": "Classic BBQ-sides: coleslaw, beans, mac & cheese, fries, veggies, and more.",
+      "displayOrder": 3
+    },
+    "fresh-bites": {
+      "name": "FRESH BITES",
+      "description": "Fresh salads and lighter fare, with optional BBQ meat add-ons.",
+      "displayOrder": 4
+    },
+    "family-meals": {
+      "name": "FAMILY MEALS",
+      "description": "Large-format options—feeds the whole crew with meat, sides, and drinks.",
+      "displayOrder": 5
+    },
+    "beverages": {
+      "name": "BEVERAGES",
+      "description": "Sweet and unsweet tea, sodas, lemonade, and more.",
+      "displayOrder": 6
+    },
+    "desserts": {
+      "name": "DESSERTS",
+      "description": "Sweet finishes like banana pudding, donut holes, cookies, and seasonal treats.",
+      "displayOrder": 7
+    }
+  },
+  "orders": {
+    "catering": {},
+    "delivery": {},
+    "pickup": {}
+  }
+}

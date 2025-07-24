@@ -1,10 +1,15 @@
-import MenuItemCard from '../MenuItemCard'; 
+import MenuCard from '../MenuCard/MenuCard';
 
-const MenuGrid = ({ items, onItemClick }) => {
+const MenuGrid = ({ items, onItemClick, onOrderClick }) => {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
       {items.map((item) => (
-        <MenuItemCard key={item.id} item={item} onClick={onItemClick} />
+        <MenuCard
+          key={item.id}
+          item={item}
+          onItemClick={onItemClick}
+          onOrderClick={onOrderClick}
+        />
       ))}
     </div>
   );

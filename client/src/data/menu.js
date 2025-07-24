@@ -1,64 +1,113 @@
-import brisketImg from '../assets/img/brisket.png';
-import ribsImg from '../assets/img/ribs.png';
-import macImg from '../assets/img/mac.png';
-import teaImg from '../assets/img/tea.png';
-import cobblerImg from '../assets/img/cobbler.png';
-import beansImg from '../assets/img/beans.png'; 
-
 const menu = [
   {
-    id: 'brisket',
-    title: 'Smoked Brisket',
-    description: '12-hour smoked Angus brisket with bark and juicy inside.',
-    category: 'Meats',
+    id: 1,
+    title: "BBQ Street Corn Dip",
+    description: "A smoky, creamy blend of roasted corn, red onion, red pepper, tomato, and spices",
+    price: 8.99,
+    image: "https://picsum.photos/400/300?random=1",
+    category: "SIDEKICKS",
+    isNew: true,
+    featured: false,
+    tags: ["Popular", "Vegetarian"]
+  },
+  {
+    id: 2,
+    title: "Seasonal Wings",
+    description: "Our Smoked Wings tossed in a Tennessee Vinegar or Sonny's signature sauce",
+    price: 12.99,
+    image: "https://picsum.photos/400/300?random=2",
+    category: "SIGNATURE BBQ",
+    isNew: true,
+    featured: true,
+    tags: ["New", "Spicy"]
+  },
+  {
+    id: 3,
+    title: "BBQ Wedge",
+    description: "Iceberg lettuce topped with blue cheese, bacon crumbles, red onions, and BBQ drizzle",
+    price: 9.99,
+    image: "https://picsum.photos/400/300?random=3",
+    category: "GARDEN OF EATIN'",
+    isNew: true,
+    featured: false,
+    tags: ["Fresh", "Salad"]
+  },
+  {
+    id: 4,
+    title: "Classic Brisket",
+    description: "Slow-smoked beef brisket with our signature dry rub",
+    price: 16.99,
+    image: "https://picsum.photos/400/300?random=4",
+    category: "SIGNATURE BBQ",
+    isNew: false,
+    featured: true,
+    tags: ["Signature", "Classic"]
+  },
+  {
+    id: 5,
+    title: "Smoked Ribs",
+    description: "Fall-off-the-bone pork ribs with tangy BBQ sauce",
     price: 18.99,
-    image: brisketImg,
-    tags: ['Gluten-Free', 'Popular'],
+    image: "https://picsum.photos/400/300?random=5",
+    category: "SIGNATURE BBQ",
+    isNew: false,
+    featured: true,
+    tags: ["Popular", "House Special"]
   },
   {
-    id: 'ribs',
-    title: 'BBQ Ribs',
-    description: 'Slow-cooked pork ribs glazed with house BBQ sauce.',
-    category: 'Meats',
-    price: 16.5,
-    image: ribsImg,
-    tags: ['House Special'],
+    id: 6,
+    title: "Mac & Cheese",
+    description: "Creamy three-cheese blend with crispy breadcrumb topping",
+    price: 7.99,
+    image: "https://picsum.photos/400/300?random=6",
+    category: "SIDEKICKS",
+    isNew: false,
+    featured: false,
+    tags: ["Comfort Food", "Vegetarian"]
   },
   {
-    id: 'mac',
-    title: 'Mac & Cheese',
-    description: 'Creamy baked mac with cheddar crust.',
-    category: 'Sides',
+    id: 7,
+    title: "Sweet Tea",
+    description: "Southern-style sweet tea brewed fresh daily",
+    price: 2.99,
+    image: "https://picsum.photos/400/300?random=7",
+    category: "BEVERAGES",
+    isNew: false,
+    featured: false,
+    tags: ["Refreshing", "Traditional"]
+  },
+  {
+    id: 8,
+    title: "Peach Cobbler",
+    description: "Warm peach cobbler with vanilla ice cream",
     price: 6.99,
-    image: macImg,
-    tags: ['Vegetarian'],
+    image: "https://picsum.photos/400/300?random=8",
+    category: "DESSERTS",
+    isNew: false,
+    featured: false,
+    tags: ["Dessert", "Homemade"]
   },
   {
-    id: 'tea',
-    title: 'Sweet Tea',
-    description: 'Cold-brewed Southern sweet tea.',
-    category: 'Drinks',
-    price: 2.5,
-    image: teaImg,
-    tags: ['Iced'],
+    id: 9,
+    title: "Pulled Pork Sandwich",
+    description: "Tender pulled pork with coleslaw on a brioche bun",
+    price: 11.99,
+    image: "https://picsum.photos/400/300?random=9",
+    category: "BBQ SANDWICHES",
+    isNew: false,
+    featured: true,
+    tags: ["Popular"]
   },
   {
-    id: 'cake',
-    title: 'Peach Cobbler',
-    description: 'Warm peach cobbler with flaky crust.',
-    category: 'Desserts',
-    price: 5.99,
-    image: cobblerImg,
-    tags: ['Dessert', 'Warm'],
-  },
-  {
-    id: 'beans',
-    title: 'Baked Beans',
-    description: 'Slow-cooked BBQ beans with smoky flavor and a hint of brown sugar.',
-    category: 'Sides',
-    price: 4.99,
-    image: beansImg,
-    tags: ['Classic', 'Smoky'],
+    id: 10,
+    title: "Family Feast",
+    description: "Serves 4-6 people with choice of 3 meats and 3 sides",
+    price: 49.99,
+    image: "https://picsum.photos/400/300?random=10",
+    category: "FAMILY MEALS",
+    isNew: false,
+    featured: true,
+    tags: ["Great Value", "Sharing"]
   }
 ];
 

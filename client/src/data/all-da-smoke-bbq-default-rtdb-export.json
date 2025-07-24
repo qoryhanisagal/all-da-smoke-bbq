@@ -1,0 +1,94 @@
+{
+  "cateringPackages": {
+    "package001": {
+      "description": "Catering package to serve up to 10 people",
+      "includes": [
+        "2 proteins",
+        "2 sides",
+        "1 drink"
+      ],
+      "name": "Feed 10",
+      "price": 129.99
+    },
+    "package002": {
+      "description": "Catering package to serve up to 25 people",
+      "includes": [
+        "4 proteins",
+        "3 sides",
+        "2 drinks"
+      ],
+      "name": "Feed 25",
+      "price": 299.99
+    },
+    "package003": {
+      "description": "Catering package to serve up to 50 people",
+      "includes": [
+        "6 proteins",
+        "4 sides",
+        "3 drinks"
+      ],
+      "name": "Feed 50",
+      "price": 579.99
+    }
+  },
+  "menuItems": {
+    "item001": {
+      "category": "sides",
+      "description": "Creamy and cheesy baked macaroni",
+      "name": "Mac & Cheese",
+      "price": 5.99
+    },
+    "item002": {
+      "category": "proteins",
+      "description": "Slow smoked Texas-style brisket",
+      "name": "Smoked Brisket",
+      "price": 12.99
+    },
+    "item003": {
+      "category": "drinks",
+      "description": "Classic Southern-style sweet tea",
+      "name": "Sweet Tea",
+      "price": 1.99
+    }
+  },
+  "orders": {
+    "catering": {
+      "order003": {
+        "customer": "Company Event",
+        "eventDate": "2025-07-20",
+        "packageId": "package002",
+        "status": "confirmed"
+      }
+    },
+    "delivery": {
+      "order001": {
+        "address": "123 Smoke Lane",
+        "customer": "Jane Doe",
+        "items": [
+          {
+            "menuItemId": "item001",
+            "quantity": 2
+          },
+          {
+            "menuItemId": "item002",
+            "quantity": 1
+          }
+        ],
+        "status": "pending"
+      }
+    },
+    "pickup": {
+      "order002": {
+        "customer": "John Smith",
+        "items": [
+          {
+            "menuItemId": "item003",
+            "quantity": 3
+          }
+        ],
+        "pickupTime": "5:00 PM",
+        "status": "ready"
+      }
+    }
+  }
+}
