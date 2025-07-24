@@ -11,6 +11,7 @@ import Login from './pages/LoginPage';
 import Delivery from './pages/DeliveryPage';
 import Menu from './pages/Menu/Menu';
 import Gallery from './pages/GalleryPage';
+import Catering from './pages/CateringPage';
 import './index.css'; // Tailwind CSS styles
 
 // Global styles and icons
@@ -35,6 +36,7 @@ function App() {
           <Route path="/delivery" element={<Delivery />} />
           <Route path="/test-menu" element={<Menu />} />
           <Route path="/gallery" element={<Gallery />} />
+          <Route path="/catering" element={<Catering />} />
         </Route>
       </Routes>
     </>
