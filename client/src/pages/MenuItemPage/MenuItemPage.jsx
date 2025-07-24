@@ -2,97 +2,35 @@ import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import HeroLayout from '../../components/HeroLayout/HeroLayout';
 import Breadcrumb from '../../components/Breadcrumb';
+import LoadingSpinner from '../../components/LoadingSpinner';
+import { useFirebaseMenu } from '../../hooks/useFirebaseMenu';
 import { heroBackgrounds } from '../../data/backgroundImages';
-
-// Mock data for menu items (this would typically come from an API)
-const menuItemsData = {
-  'bbq-sandwiches': {
-    'beef-brisket': {
-      name: 'Beef Brisket Sandwich',
-      description: 'Our signature beef brisket is smoked low and slow for 14 hours using hickory wood. The result is incredibly tender, juicy meat with a perfect smoke ring. Served on a fresh brioche bun with pickles and onions.',
-      longDescription: 'Our beef brisket is the crown jewel of our BBQ menu. We start with premium beef brisket, season it with our secret dry rub blend of spices, and smoke it at 225°F for 14 hours using hickory wood. The meat develops a beautiful bark while staying incredibly moist and tender inside. Each sandwich is hand-carved to order and piled high on a fresh brioche bun.',
-      price: 12.99,
-      image: 'https://picsum.photos/600/400?random=1',
-      gallery: [
-        'https://picsum.photos/600/400?random=1',
-        'https://picsum.photos/600/400?random=11',
-        'https://picsum.photos/600/400?random=21'
-      ],
-      nutrition: {
-        calories: 650,
-        protein: '45g',
-        carbs: '35g',
-        fat: '32g'
-      },
-      ingredients: ['Smoked Beef Brisket', 'Brioche Bun', 'Pickles', 'Red Onions', 'BBQ Sauce'],
-      customizations: {
-        sizes: [
-          { name: 'Regular', price: 0 },
-          { name: 'Large (+50% meat)', price: 4.00 }
-        ],
-        sauces: [
-          { name: 'Original BBQ', price: 0 },
-          { name: 'Spicy BBQ', price: 0 },
-          { name: 'Carolina Gold', price: 0 },
-          { name: 'Dry Rub (No Sauce)', price: 0 }
-        ],
-        sides: [
-          { name: 'No Side', price: 0 },
-          { name: 'Mac & Cheese', price: 2.99 },
-          { name: 'Coleslaw', price: 2.49 },
-          { name: 'Baked Beans', price: 2.99 },
-          { name: 'Fries', price: 3.49 }
-        ]
-      }
-    },
-    'pulled-pork': {
-      name: 'Pulled Pork Sandwich',
-      description: 'Tender pork shoulder smoked for 12 hours and hand-pulled to perfection.',
-      longDescription: 'Our pulled pork starts with premium pork shoulder, rubbed with our signature spice blend and smoked low and slow for 12 hours. The meat is then hand-pulled to maintain the perfect texture.',
-      price: 11.99,
-      image: 'https://picsum.photos/600/400?random=2',
-      gallery: [
-        'https://picsum.photos/600/400?random=2',
-        'https://picsum.photos/600/400?random=12',
-        'https://picsum.photos/600/400?random=22'
-      ],
-      nutrition: {
-        calories: 580,
-        protein: '38g',
-        carbs: '34g',
-        fat: '28g'
-      },
-      ingredients: ['Smoked Pulled Pork', 'Brioche Bun', 'Coleslaw', 'BBQ Sauce'],
-      customizations: {
-        sizes: [
-          { name: 'Regular', price: 0 },
-          { name: 'Large (+50% meat)', price: 3.50 }
-        ],
-        sauces: [
-          { name: 'Original BBQ', price: 0 },
-          { name: 'Spicy BBQ', price: 0 },
-          { name: 'Carolina Gold', price: 0 }
-        ],
-        sides: [
-          { name: 'No Side', price: 0 },
-          { name: 'Mac & Cheese', price: 2.99 },
-          { name: 'Coleslaw', price: 2.49 },
-          { name: 'Baked Beans', price: 2.99 }
-        ]
-      }
-    }
-  }
-};
 
 export default function MenuItemPage() {
   const { category, item } = useParams();
+  const { loading, error, getMenuItem } = useFirebaseMenu();
   const [selectedImage, setSelectedImage] = useState(0);
   const [selectedSize, setSelectedSize] = useState(0);
   const [selectedSauce, setSelectedSauce] = useState(0);
   const [selectedSide, setSelectedSide] = useState(0);
   const [quantity, setQuantity] = useState(1);
 
-  const itemData = menuItemsData[category]?.[item];
+  const itemData = getMenuItem(category, item);
+
+  if (loading) {
+    return <LoadingSpinner message="Loading Menu Item..." />;
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <h2 className="text-2xl font-semibold mb-2 text-error">Error Loading Menu Item</h2>
+          <p className="text-base-content/70">{error}</p>
+        </div>
+      </div>
+    );
+  }
 
   if (!itemData) {
     return (
@@ -111,11 +49,17 @@ export default function MenuItemPage() {
   }
 
   const calculateTotalPrice = () => {
-    let total = itemData.price;
-    if (itemData.customizations.sizes) {
+    // Parse price if it's a string (e.g., "$12.99")
+    let basePrice = typeof itemData.price === 'string' 
+      ? parseFloat(itemData.price.replace('$', '')) 
+      : itemData.price;
+    
+    let total = basePrice || 0;
+    
+    if (itemData.customizations?.sizes) {
       total += itemData.customizations.sizes[selectedSize]?.price || 0;
     }
-    if (itemData.customizations.sides) {
+    if (itemData.customizations?.sides) {
       total += itemData.customizations.sides[selectedSide]?.price || 0;
     }
     return total * quantity;
@@ -149,24 +93,26 @@ export default function MenuItemPage() {
             <div>
               <div className="mb-4">
                 <img 
-                  src={itemData.gallery[selectedImage]} 
+                  src={itemData.gallery?.[selectedImage] || itemData.image} 
                   alt={itemData.name}
                   className="w-full h-96 object-cover rounded-lg shadow-lg"
                 />
               </div>
-              <div className="grid grid-cols-3 gap-2">
-                {itemData.gallery.map((img, index) => (
-                  <img
-                    key={index}
-                    src={img}
-                    alt={`${itemData.name} ${index + 1}`}
-                    className={`w-full h-24 object-cover rounded cursor-pointer transition-all ${
-                      selectedImage === index ? 'ring-2 ring-primary' : 'opacity-70 hover:opacity-100'
-                    }`}
-                    onClick={() => setSelectedImage(index)}
-                  />
-                ))}
-              </div>
+              {itemData.gallery && itemData.gallery.length > 1 && (
+                <div className="grid grid-cols-3 gap-2">
+                  {itemData.gallery.map((img, index) => (
+                    <img
+                      key={index}
+                      src={img}
+                      alt={`${itemData.name} ${index + 1}`}
+                      className={`w-full h-24 object-cover rounded cursor-pointer transition-all ${
+                        selectedImage === index ? 'ring-2 ring-primary' : 'opacity-70 hover:opacity-100'
+                      }`}
+                      onClick={() => setSelectedImage(index)}
+                    />
+                  ))}
+                </div>
+              )}
             </div>
 
             {/* Item Details */}
@@ -179,9 +125,9 @@ export default function MenuItemPage() {
                 <span className="text-3xl font-bold text-primary">
                   ${calculateTotalPrice().toFixed(2)}
                 </span>
-                {calculateTotalPrice() !== itemData.price && (
+                {calculateTotalPrice() !== (typeof itemData.price === 'string' ? parseFloat(itemData.price.replace('$', '')) : itemData.price) && (
                   <span className="text-lg text-base-content/50 line-through">
-                    ${itemData.price.toFixed(2)}
+                    {typeof itemData.price === 'string' ? itemData.price : `$${itemData.price?.toFixed(2)}`}
                   </span>
                 )}
               </div>
@@ -283,29 +229,33 @@ export default function MenuItemPage() {
               </button>
 
               {/* Nutrition Info */}
-              <div className="card bg-base-200">
-                <div className="card-body">
-                  <h3 className="card-title text-lg">Nutrition Information</h3>
-                  <div className="grid grid-cols-2 gap-4 text-sm">
-                    <div>Calories: <strong>{itemData.nutrition.calories}</strong></div>
-                    <div>Protein: <strong>{itemData.nutrition.protein}</strong></div>
-                    <div>Carbs: <strong>{itemData.nutrition.carbs}</strong></div>
-                    <div>Fat: <strong>{itemData.nutrition.fat}</strong></div>
+              {itemData.nutrition && (
+                <div className="card bg-base-200">
+                  <div className="card-body">
+                    <h3 className="card-title text-lg">Nutrition Information</h3>
+                    <div className="grid grid-cols-2 gap-4 text-sm">
+                      {itemData.nutrition.calories && <div>Calories: <strong>{itemData.nutrition.calories}</strong></div>}
+                      {itemData.nutrition.protein && <div>Protein: <strong>{itemData.nutrition.protein}</strong></div>}
+                      {itemData.nutrition.carbs && <div>Carbs: <strong>{itemData.nutrition.carbs}</strong></div>}
+                      {itemData.nutrition.fat && <div>Fat: <strong>{itemData.nutrition.fat}</strong></div>}
+                    </div>
                   </div>
                 </div>
-              </div>
+              )}
 
               {/* Ingredients */}
-              <div className="mt-6">
-                <h3 className="text-lg font-semibold mb-3">Ingredients</h3>
-                <div className="flex flex-wrap gap-2">
-                  {itemData.ingredients.map((ingredient, index) => (
-                    <span key={index} className="badge badge-outline">
-                      {ingredient}
-                    </span>
-                  ))}
+              {itemData.ingredients && itemData.ingredients.length > 0 && (
+                <div className="mt-6">
+                  <h3 className="text-lg font-semibold mb-3">Ingredients</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {itemData.ingredients.map((ingredient, index) => (
+                      <span key={index} className="badge badge-outline">
+                        {ingredient}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           </div>
 
