@@ -1,35 +1,69 @@
 import { useState, useMemo, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import CategoryTabs from '../../components/CategoryTabs';
 import MenuCarousel from '../../components/MenuCarousel';
-import MenuModal from '../../components/MenuModal';
 import SectionDivider from '../../components/SectionDivider';
 import CategoryHeader from '../../components/CategoryHeader/CategoryHeader';
-import menu from '../../data/menu';
-import categories from '../../data/categories';
 import FAQs from '../../components/FAQs/FAQs';
 import { menuFAQs } from '../../data/faqs';
 import HeroLayout from '../../components/HeroLayout/HeroLayout';
+import LoadingSpinner from '../../components/LoadingSpinner';
+import { useFirebaseMenu } from '../../hooks/useFirebaseMenu';
 import {
   heroBackgrounds,
   contentBackgrounds,
 } from '../../data/backgroundImages';
 
 const MenuPage = () => {
-  const [selectedCategory, setSelectedCategory] = useState(categories[0].name);
-  const [selectedItem, setSelectedItem] = useState(null);
+  const navigate = useNavigate();
+  const { menuData, categories, loading, error, getMenuByCategory } = useFirebaseMenu();
+  const [selectedCategory, setSelectedCategory] = useState('');
+
+  // Set initial category when categories load
+  useEffect(() => {
+    if (categories.length > 0 && !selectedCategory) {
+      setSelectedCategory(categories[0].name);
+    }
+  }, [categories, selectedCategory]);
 
   // Group menu items by category for easy section display
   const menuByCategory = useMemo(() => {
-    return categories.reduce((acc, category) => {
-      acc[category.name] = menu.filter(
-        (item) => item.category === category.name
-      );
-      return acc;
-    }, {});
-  }, []);
+    return getMenuByCategory();
+  }, [menuData, categories]);
+
+  // Generate category slug from category name
+  const getCategorySlug = (categoryName) => {
+    const categorySlugMap = {
+      'SIGNATURE BBQ': 'signature-bbq',
+      'BBQ SANDWICHES': 'bbq-sandwiches',
+      'PITMASTER LUNCH PLATES': 'lunch-plates',
+      'BBQ BY THE POUND': 'bbq-by-pound',
+      'FAMILY MEALS': 'family-meals',
+      'FRESH BITES': 'fresh-bites',
+      'PITMASTER PICKS': 'pitmaster-picks',
+      'SIDEKICKS': 'sides',
+      'DESSERTS': 'desserts',
+      'BEVERAGES': 'beverages',
+      'SAUCES & RUBS': 'sauces-rubs'
+    };
+    return categorySlugMap[categoryName] || categoryName.toLowerCase().replace(/[^a-z0-9]/g, '-');
+  };
+
+  // Generate item slug from item name
+  const getItemSlug = (itemName) => {
+    return itemName ? itemName.toLowerCase().replace(/[^a-z0-9]/g, '-') : '';
+  };
 
   const handleOrderClick = (item) => {
-    console.log('Ordering:', item);
+    const categorySlug = getCategorySlug(item.category);
+    const itemSlug = getItemSlug(item.name);
+    navigate(`/menu/${categorySlug}/${itemSlug}`);
+  };
+
+  const handleItemClick = (item) => {
+    const categorySlug = getCategorySlug(item.category);
+    const itemSlug = getItemSlug(item.name);
+    navigate(`/menu/${categorySlug}/${itemSlug}`);
   };
 
   // Create a unique HTML id for each category section for scroll navigation
@@ -45,6 +79,21 @@ const MenuPage = () => {
       section.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }, [selectedCategory]);
+
+  if (loading) {
+    return <LoadingSpinner message="Loading Menu..." />;
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <h2 className="text-2xl font-semibold mb-2 text-error">Error Loading Menu</h2>
+          <p className="text-base-content/70">{error}</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div data-theme="lofi" className="overflow-x-hidden">
@@ -96,7 +145,7 @@ const MenuPage = () => {
                       {/* All menu items for the current category */}
                       <MenuCarousel
                         items={categoryItems}
-                        onItemClick={setSelectedItem}
+                        onItemClick={handleItemClick}
                         onOrderClick={handleOrderClick}
                       />
                     </section>
@@ -108,11 +157,6 @@ const MenuPage = () => {
               })}
             </div>
           </div>
-          {/* Modal popup for menu item details */}
-          <MenuModal
-            item={selectedItem}
-            onClose={() => setSelectedItem(null)}
-          />
           {/* To show menu FAQs, uncomment the line below */}
           <FAQs faqs={menuFAQs} title="Menu FAQs" />
         </div>

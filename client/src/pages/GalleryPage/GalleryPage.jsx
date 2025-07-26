@@ -1,10 +1,7 @@
 import HeroLayout from '../../components/HeroLayout/HeroLayout';
 import ImageGallery from '../../components/ImageGallery';
 import galleryImages from '../../data/galleryImages';
-import {
-  heroBackgrounds,
-  contentBackgrounds,
-} from '../../data/backgroundImages';
+import { heroBackgrounds } from '../../data/backgroundImages';
 
 const GalleryPage = () => {
   return (
