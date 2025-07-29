@@ -15,7 +15,7 @@ export default function DeliveryPage() {
         heroSubtitle="Testing the stencil font on a simple page."
         contentBackgroundImage={contentBackgrounds.woodTexture}
       >
-        {/* Simple content to test the layout */}
+        {/* Content to test the layout */}
         <div className="container mx-auto px-4 py-8">
           <h2 className="text-2xl font-stardos-stencil-bold text-primary mb-4">
             Stencil Font Test

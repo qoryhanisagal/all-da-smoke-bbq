@@ -4,7 +4,7 @@ import owners from '../../assets/img/owners.png';
 
 export default function AboutPage() {
   return (
-    <div className="overflow-x-hidden">
+    <div className="overflow-x-hidden" data-theme="lofi">
       <HeroLayout
         heroImage={heroBackgrounds.hero1}
         heroTitle={

@@ -5,7 +5,7 @@ import { heroBackgrounds } from '../../data/backgroundImages';
 
 const GalleryPage = () => {
   return (
-    <div className="overflow-x-hidden">
+    <div className="overflow-x-hidden" data-theme="lofi">
       <HeroLayout
         heroImage={heroBackgrounds.hero1}
         heroTitle="Our Gallery"

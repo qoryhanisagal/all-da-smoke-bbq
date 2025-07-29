@@ -3,7 +3,7 @@ import { heroBackgrounds } from '../../data/backgroundImages';
 
 export default function NewsletterPage() {
   return (
-    <div>
+    <div data-theme="lofi">
       <HeroLayout
         heroImage={heroBackgrounds.hero1}
         heroTitle="Join Our Newsletter"
