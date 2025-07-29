@@ -16,7 +16,8 @@ import {
 
 const MenuPage = () => {
   const navigate = useNavigate();
-  const { menuData, categories, loading, error, getMenuByCategory } = useFirebaseMenu();
+  const { menuData, categories, loading, error, getMenuByCategory } =
+    useFirebaseMenu();
   const [selectedCategory, setSelectedCategory] = useState('');
 
   // Set initial category when categories load
@@ -41,12 +42,15 @@ const MenuPage = () => {
       'FAMILY MEALS': 'family-meals',
       'FRESH BITES': 'fresh-bites',
       'PITMASTER PICKS': 'pitmaster-picks',
-      'SIDEKICKS': 'sides',
-      'DESSERTS': 'desserts',
-      'BEVERAGES': 'beverages',
-      'SAUCES & RUBS': 'sauces-rubs'
+      SIDEKICKS: 'sides',
+      DESSERTS: 'desserts',
+      BEVERAGES: 'beverages',
+      'SAUCES & RUBS': 'sauces-rubs',
     };
-    return categorySlugMap[categoryName] || categoryName.toLowerCase().replace(/[^a-z0-9]/g, '-');
+    return (
+      categorySlugMap[categoryName] ||
+      categoryName.toLowerCase().replace(/[^a-z0-9]/g, '-')
+    );
   };
 
   // Generate item slug from item name/title (Firebase uses 'title' field)
@@ -91,7 +95,9 @@ const MenuPage = () => {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <h2 className="text-2xl font-semibold mb-2 text-error">Error Loading Menu</h2>
+          <h2 className="text-2xl font-semibold mb-2 text-error">
+            Error Loading Menu
+          </h2>
           <p className="text-base-content/70">{error}</p>
         </div>
       </div>
@@ -106,9 +112,6 @@ const MenuPage = () => {
         heroSubtitle="Authentic BBQ crafted with passion. From smoky brisket to tender ribs, discover the flavors that make us legendary."
         contentBackgroundImage={contentBackgrounds.smokeTexture}
         contentAlignment="center"
-        heroTitleClass="text-accent text-center font-stardos-stencil-bold"
-        heroSubtitleClass="text-center font-stardos-stencil-normal text-accent-content"
-        allowStacking={true}
       >
         <div className="container mx-auto max-w-full px-4 py-8 h-[calc(100vh-4rem)]">
           {/* Two-column layout: left is category navigation, right is menu content */}

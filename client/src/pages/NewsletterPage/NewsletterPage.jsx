@@ -8,6 +8,10 @@ export default function NewsletterPage() {
         heroImage={heroBackgrounds.hero1}
         heroTitle="Join Our Newsletter"
         heroSubtitle="Stay updated with the latest BBQ news, specials, and events"
+        contentAlignment="left-align"
+        heroTitleClass="text-accent text-left font-stardos-stencil-bold"
+        heroSubtitleClass="text-left font-stardos-stencil-normal text-accent-content"
+        allowStacking={true}
       >
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-2xl mx-auto text-center">

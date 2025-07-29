@@ -231,10 +231,11 @@ export default function ContactPage() {
   return (
     <div data-theme="lofi">
       <HeroLayout
-        allowStacking={false}
+        allowStacking={true}
         heroImage={heroBackgrounds.hero1}
         heroTitle="Contact Us"
         heroSubtitle="We'd love to hear from you. Send us a message and we'll respond as soon as possible."
+        heroTitleClass="text-accent text-left whitespace-nowrap font-stardos-stencil-bold text-3xl sm:text-3xl lg:text-3xl"
       >
         <div className="container mx-auto px-4 py-12">
           {/* Contact Form and Info Grid */}
