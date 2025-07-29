@@ -1,10 +1,10 @@
-# 🧱 Tech Stack & Component Breakdown
+# ⚫️ Tech Stack & Component Breakdown
 
 This document outlines the core technologies selected for the All Da Smoke BBQ website and maps key components to each page or feature group. It also explains why each technology was chosen.
 
 ---
 
-## 🚀 Core Technologies
+## ⚫️ Core Technologies
 
 | Tool/Framework       | Purpose                                               |
 | -------------------- | ----------------------------------------------------- |
@@ -17,7 +17,7 @@ This document outlines the core technologies selected for the All Da Smoke BBQ w
 
 ---
 
-## 🎯 Why This Stack?
+## ⚫️ Why This Stack?
 
 - **React + Vite**: Faster build times and modern React tooling.
 - **Tailwind CSS**: Speeds up UI styling without writing custom CSS.
@@ -26,13 +26,13 @@ This document outlines the core technologies selected for the All Da Smoke BBQ w
 
 ---
 
-## 🧩 Component Breakdown
+## ⚫️ Component Breakdown
 
 Components are organized by feature area for modular development and reuse.
 
 ---
 
-### 🔥 Core Website Pages
+### ⚫️ Core Website Pages
 
 | Page             | Primary Components                                  |
 | ---------------- | --------------------------------------------------- |
@@ -46,7 +46,7 @@ Components are organized by feature area for modular development and reuse.
 
 ---
 
-### 👨🏾‍🍳 Chef-Related Pages
+### ⚫️ Chef-Related Pages
 
 | Page               | Primary Components                        |
 | ------------------ | ----------------------------------------- |
@@ -64,7 +64,7 @@ Components are organized by feature area for modular development and reuse.
 
 ---
 
-### 📝 Blog Pages
+### ⚫️ Blog Pages
 
 | Page               | Primary Components                                 |
 | ------------------ | -------------------------------------------------- |
@@ -74,7 +74,7 @@ Components are organized by feature area for modular development and reuse.
 
 ---
 
-## 🧠 Future Integrations (Post-MVP)
+## ⚫️ Future Integrations (Post-MVP)
 
 - **Stripe or Square**: For shop checkout and online reservations
 - **CMS integration (Firebase)**: For blog and menu management
@@ -82,7 +82,7 @@ Components are organized by feature area for modular development and reuse.
 
 ---
 
-## 🔖 Notes
+## ⚫️ Notes
 
 - Component names follow PascalCase convention.
 - Every page is route-driven via React Router.
