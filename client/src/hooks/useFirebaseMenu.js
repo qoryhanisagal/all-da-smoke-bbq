@@ -95,7 +95,8 @@ export const useFirebaseMenu = () => {
       ...category,
       items: items.map(item => ({
         ...item,
-        id: item.name ? item.name.toLowerCase().replace(/[^a-z0-9]/g, '-') : item.id,
+        id: (item.title || item.name) ? (item.title || item.name).toLowerCase().replace(/[^a-z0-9]/g, '-') : item.id,
+        name: item.title || item.name, // Normalize title/name fields
         price: typeof item.price === 'number' ? `$${item.price.toFixed(2)}` : item.price,
         image: item.image || `https://picsum.photos/400/300?random=${Math.floor(Math.random() * 100) + 1}`,
         popular: item.popular || Math.random() > 0.7

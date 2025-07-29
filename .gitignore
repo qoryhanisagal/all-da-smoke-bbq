@@ -18,5 +18,3 @@ dist/
 *.log
 .github/instructions/
 
-# Ignore Vscode workspace settings
-.vscode/

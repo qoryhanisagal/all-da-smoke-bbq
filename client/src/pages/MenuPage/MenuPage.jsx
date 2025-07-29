@@ -49,21 +49,24 @@ const MenuPage = () => {
     return categorySlugMap[categoryName] || categoryName.toLowerCase().replace(/[^a-z0-9]/g, '-');
   };
 
-  // Generate item slug from item name
-  const getItemSlug = (itemName) => {
+  // Generate item slug from item name/title (Firebase uses 'title' field)
+  const getItemSlug = (item) => {
+    const itemName = item.title || item.name;
     return itemName ? itemName.toLowerCase().replace(/[^a-z0-9]/g, '-') : '';
   };
 
   const handleOrderClick = (item) => {
     const categorySlug = getCategorySlug(item.category);
-    const itemSlug = getItemSlug(item.name);
-    navigate(`/menu/${categorySlug}/${itemSlug}`);
+    const itemSlug = getItemSlug(item);
+    const navigationPath = `/menu/${categorySlug}/${itemSlug}`;
+    navigate(navigationPath);
   };
 
   const handleItemClick = (item) => {
     const categorySlug = getCategorySlug(item.category);
-    const itemSlug = getItemSlug(item.name);
-    navigate(`/menu/${categorySlug}/${itemSlug}`);
+    const itemSlug = getItemSlug(item);
+    const navigationPath = `/menu/${categorySlug}/${itemSlug}`;
+    navigate(navigationPath);
   };
 
   // Create a unique HTML id for each category section for scroll navigation

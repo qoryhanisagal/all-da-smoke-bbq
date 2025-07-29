@@ -1,19 +1,22 @@
 import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import HeroLayout from '../../components/HeroLayout/HeroLayout';
-import Breadcrumb from '../../components/Breadcrumb';
+import HeroBreadcrumb from '../../components/HeroBreadcrumb/HeroBreadcrumb';
 import LoadingSpinner from '../../components/LoadingSpinner';
 import { useFirebaseMenu } from '../../hooks/useFirebaseMenu';
+import { useCart } from '../../context/CartContext';
 import { heroBackgrounds } from '../../data/backgroundImages';
 
 export default function MenuItemPage() {
   const { category, item } = useParams();
   const { loading, error, getMenuItem } = useFirebaseMenu();
+  const { addToCart } = useCart();
   const [selectedImage, setSelectedImage] = useState(0);
   const [selectedSize, setSelectedSize] = useState(0);
   const [selectedSauce, setSelectedSauce] = useState(0);
   const [selectedSide, setSelectedSide] = useState(0);
   const [quantity, setQuantity] = useState(1);
+  const [addingToCart, setAddingToCart] = useState(false);
 
   const itemData = getMenuItem(category, item);
 
@@ -57,12 +60,59 @@ export default function MenuItemPage() {
     let total = basePrice || 0;
     
     if (itemData.customizations?.sizes) {
-      total += itemData.customizations.sizes[selectedSize]?.price || 0;
+      total += itemData.customizations?.sizes[selectedSize]?.price || 0;
     }
     if (itemData.customizations?.sides) {
-      total += itemData.customizations.sides[selectedSide]?.price || 0;
+      total += itemData.customizations?.sides[selectedSide]?.price || 0;
     }
     return total * quantity;
+  };
+
+  const handleAddToCart = async () => {
+    setAddingToCart(true);
+    
+    try {
+      const customizations = {};
+      
+      if (itemData.customizations?.sizes && itemData.customizations?.sizes[selectedSize]) {
+        customizations.size = itemData.customizations.sizes[selectedSize].name;
+      }
+      
+      if (itemData.customizations?.sauces && itemData.customizations?.sauces[selectedSauce]) {
+        customizations.sauce = itemData.customizations.sauces[selectedSauce].name;
+      }
+      
+      if (itemData.customizations?.sides && itemData.customizations?.sides[selectedSide]) {
+        customizations.side = itemData.customizations.sides[selectedSide].name;
+      }
+
+      const cartItem = {
+        id: itemData.id,
+        name: itemData.name,
+        description: itemData.description,
+        image: itemData.image,
+        price: calculateTotalPrice() / quantity, // Unit price with customizations
+        category: itemData.category
+      };
+
+      addToCart(cartItem, quantity, customizations);
+      
+      // Success feedback
+      const btn = document.querySelector('.add-to-cart-btn');
+      if (btn) {
+        btn.textContent = 'Added to Cart!';
+        btn.classList.add('btn-success');
+        setTimeout(() => {
+          btn.textContent = `Add to Cart - $${calculateTotalPrice().toFixed(2)}`;
+          btn.classList.remove('btn-success');
+        }, 2000);
+      }
+    } catch (error) {
+      console.error('Error adding to cart:', error);
+      alert('Failed to add item to cart. Please try again.');
+    } finally {
+      setAddingToCart(false);
+    }
   };
 
   // Breadcrumb items
@@ -78,15 +128,14 @@ export default function MenuItemPage() {
   ];
 
   return (
-    <div>
+    <div className="relative">
+      <HeroBreadcrumb items={breadcrumbItems} theme="dark" />
       <HeroLayout
         heroImage={heroBackgrounds.hero3}
         heroTitle={itemData.name}
         heroSubtitle={itemData.description}
       >
         <div className="container mx-auto px-4 py-16">
-          {/* Breadcrumb */}
-          <Breadcrumb items={breadcrumbItems} />
 
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Image Gallery */}
@@ -135,11 +184,11 @@ export default function MenuItemPage() {
               {/* Customizations */}
               <div className="space-y-6 mb-8">
                 {/* Size Selection */}
-                {itemData.customizations.sizes && (
+                {itemData.customizations?.sizes && (
                   <div>
                     <h3 className="text-lg font-semibold mb-3">Size</h3>
                     <div className="grid grid-cols-2 gap-2">
-                      {itemData.customizations.sizes.map((size, index) => (
+                      {itemData.customizations?.sizes.map((size, index) => (
                         <label key={index} className="cursor-pointer">
                           <input
                             type="radio"
@@ -166,7 +215,7 @@ export default function MenuItemPage() {
                 )}
 
                 {/* Sauce Selection */}
-                {itemData.customizations.sauces && (
+                {itemData.customizations?.sauces && (
                   <div>
                     <h3 className="text-lg font-semibold mb-3">Sauce</h3>
                     <select 
@@ -174,7 +223,7 @@ export default function MenuItemPage() {
                       value={selectedSauce}
                       onChange={(e) => setSelectedSauce(parseInt(e.target.value))}
                     >
-                      {itemData.customizations.sauces.map((sauce, index) => (
+                      {itemData.customizations?.sauces.map((sauce, index) => (
                         <option key={index} value={index}>
                           {sauce.name}
                         </option>
@@ -184,7 +233,7 @@ export default function MenuItemPage() {
                 )}
 
                 {/* Side Selection */}
-                {itemData.customizations.sides && (
+                {itemData.customizations?.sides && (
                   <div>
                     <h3 className="text-lg font-semibold mb-3">Add a Side</h3>
                     <select 
@@ -192,7 +241,7 @@ export default function MenuItemPage() {
                       value={selectedSide}
                       onChange={(e) => setSelectedSide(parseInt(e.target.value))}
                     >
-                      {itemData.customizations.sides.map((side, index) => (
+                      {itemData.customizations?.sides.map((side, index) => (
                         <option key={index} value={index}>
                           {side.name} {side.price > 0 && `(+$${side.price.toFixed(2)})`}
                         </option>
@@ -223,9 +272,22 @@ export default function MenuItemPage() {
               </div>
 
               {/* Add to Cart Button */}
-              <button className="btn btn-primary btn-lg w-full mb-6">
-                <i className="bi bi-cart-plus mr-2"></i>
-                Add to Cart - ${calculateTotalPrice().toFixed(2)}
+              <button 
+                className="btn btn-primary btn-lg w-full mb-6 add-to-cart-btn"
+                onClick={handleAddToCart}
+                disabled={addingToCart}
+              >
+                {addingToCart ? (
+                  <>
+                    <span className="loading loading-spinner loading-sm mr-2"></span>
+                    Adding to Cart...
+                  </>
+                ) : (
+                  <>
+                    <i className="bi bi-cart-plus mr-2"></i>
+                    Add to Cart - ${calculateTotalPrice().toFixed(2)}
+                  </>
+                )}
               </button>
 
               {/* Nutrition Info */}

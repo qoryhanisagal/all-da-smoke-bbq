@@ -1,5 +1,6 @@
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Layout from './layout/Layout';
+import { CartProvider } from './context/CartContext';
 
 // Page imports
 import Home from './pages/HomePage';
@@ -27,7 +28,7 @@ function App() {
   const location = useLocation();
 
   return (
-    <>
+    <CartProvider>
       {/* Main content rendered via routes */}
       <Routes>
         <Route element={<Layout />}>
@@ -47,7 +48,7 @@ function App() {
           <Route path="/menu/:category/:item" element={<MenuItemPage />} />
         </Route>
       </Routes>
-    </>
+    </CartProvider>
   );
 }
 
