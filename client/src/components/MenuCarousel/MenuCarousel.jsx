@@ -77,11 +77,13 @@ const MenuCarousel = ({ items, onItemClick, onOrderClick }) => {
         </div>
       </div>
       {/* Pagination dots: interactive, controls which item is scrolled into view. */}
-      <PaginationDots
-        count={pageCount}
-        activeIndex={activeIndex}
-        onDotClick={handleDotClick}
-      />
+      <div className="flex justify-center mt-6">
+        <PaginationDots
+          count={pageCount}
+          activeIndex={activeIndex}
+          onDotClick={handleDotClick}
+        />
+      </div>
     </div>
   );
 };

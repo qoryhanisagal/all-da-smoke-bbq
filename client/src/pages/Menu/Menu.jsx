@@ -4,6 +4,7 @@ import CategoryTabs from '../../components/CategoryTabs';
 import MenuCarousel from '../../components/MenuCarousel';
 import MenuListView from '../../components/MenuListView';
 import ViewToggle from '../../components/ViewToggle';
+import DecorativeDots from '../../components/DecorativeDots';
 import FAQs from '../../components/FAQs/FAQs';
 import { menuFAQs } from '../../data/faqs';
 import HeroLayout from '../../components/HeroLayout/HeroLayout';
@@ -163,13 +164,24 @@ const Menu = () => {
                       id={getSectionId(category.name)}
                       className="mb-12 scroll-mt-20"
                     >
-                      {/* Category header - smaller on mobile */}
-                      <div className="mb-6">
-                        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-base-content mb-2">
+                      {/* Category header - left aligned with decorative dots */}
+                      <div className="mb-6 text-left">
+                        {/* Decorative dots above category name */}
+                        <div className="mb-4">
+                          <DecorativeDots
+                            count={50}
+                            orientation="horizontal"
+                            size="sm"
+                            color="text-base-content/30"
+                            spacing="gap-1"
+                          />
+                        </div>
+                        
+                        <h2 className="text-xl md:text-2xl lg:text-3xl font-stardos-stencil-bold text-base-content mb-2 uppercase tracking-wider text-left">
                           {category.name}
                         </h2>
                         {category.description && (
-                          <p className="text-base-content/70 text-sm md:text-base max-w-2xl">
+                          <p className="text-base-content/70 text-sm md:text-base max-w-2xl text-left">
                             {category.description}
                           </p>
                         )}
