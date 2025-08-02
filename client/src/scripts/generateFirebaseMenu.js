@@ -318,6 +318,7 @@ const firebaseData = {
 export { firebaseData, categories, allMenuItems };
 
 // For Node.js usage
+/* global module */
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = { firebaseData, categories, allMenuItems };
 }

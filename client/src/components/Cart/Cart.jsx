@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { useCart } from '../../context/CartContext';
+import { useCart } from '../../context/useCart';
 import { useOrderManager } from '../../hooks/useOrderManager';
 import { ORDER_TYPES } from '../../config/orderTypes';
 
 export default function Cart({ isOpen, onClose, onCheckout }) {
-  const { cart, cartTotal, itemCount, updateQuantity, removeFromCart, clearCart } = useCart();
+  const { items: cart, cartTotal, itemCount, updateQuantity, removeFromCart, clearCart } = useCart();
   const { createOrder, loading } = useOrderManager();
   const [orderType, setOrderType] = useState('pickup');
   const [customerInfo, setCustomerInfo] = useState({

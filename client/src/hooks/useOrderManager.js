@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { ref, push, set, get, onValue, off, serverTimestamp, query, orderByChild, equalTo } from 'firebase/database';
 import { database } from '../config/firebase';
 import { ORDER_STATUS, ORDER_TYPES } from '../config/orderTypes';

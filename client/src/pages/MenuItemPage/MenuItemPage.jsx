@@ -7,8 +7,14 @@ import SaucesCarousel from '../../components/SaucesCarousel';
 import DrinksGrid from '../../components/DrinksGrid';
 import PaginationDots from '../../components/PaginationDots';
 import DecorativeDots from '../../components/DecorativeDots';
+import IngredientsDisplay from '../../components/IngredientsDisplay';
+import NutritionInfo from '../../components/NutritionInfo';
+import OrderOptions from '../../components/OrderOptions';
+import SauceSelection from '../../components/SauceSelection';
+import SizeSelection from '../../components/SizeSelection';
+import SideSelection from '../../components/SideSelection';
 import { useFirebaseMenu } from '../../hooks/useFirebaseMenu';
-import { useCart } from '../../context/CartContext';
+import { useCart } from '../../context/useCart';
 import { heroBackgrounds } from '../../data/backgroundImages';
 
 export default function MenuItemPage() {
@@ -302,80 +308,25 @@ export default function MenuItemPage() {
               {/* Customizations */}
               <div className="space-y-6 mb-8">
                 {/* Size Selection */}
-                {itemData.customizations?.sizes && (
-                  <div>
-                    <h3 className="text-lg font-semibold mb-3">Size</h3>
-                    <div className="grid grid-cols-2 gap-2">
-                      {itemData.customizations?.sizes.map((size, index) => (
-                        <label key={index} className="cursor-pointer">
-                          <input
-                            type="radio"
-                            name="size"
-                            value={index}
-                            checked={selectedSize === index}
-                            onChange={() => setSelectedSize(index)}
-                            className="sr-only"
-                          />
-                          <div
-                            className={`border-2 rounded-lg p-3 text-center transition-all ${
-                              selectedSize === index
-                                ? 'border-primary bg-primary/10'
-                                : 'border-base-300 hover:border-primary/50'
-                            }`}
-                          >
-                            <div className="font-medium">{size.name}</div>
-                            {size.price > 0 && (
-                              <div className="text-sm text-primary">
-                                +${size.price.toFixed(2)}
-                              </div>
-                            )}
-                          </div>
-                        </label>
-                      ))}
-                    </div>
-                  </div>
-                )}
+                <SizeSelection
+                  sizes={itemData.customizations?.sizes}
+                  selectedSize={selectedSize}
+                  onSizeChange={setSelectedSize}
+                />
 
                 {/* Sauce Selection */}
-                {itemData.customizations?.sauces && (
-                  <div>
-                    <h3 className="text-lg font-semibold mb-3">Sauce</h3>
-                    <select
-                      className="select select-bordered w-full"
-                      value={selectedSauce}
-                      onChange={(e) =>
-                        setSelectedSauce(parseInt(e.target.value))
-                      }
-                    >
-                      {itemData.customizations?.sauces.map((sauce, index) => (
-                        <option key={index} value={index}>
-                          {sauce.name}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                )}
+                <SauceSelection
+                  sauces={itemData.customizations?.sauces}
+                  selectedSauce={selectedSauce}
+                  onSauceChange={setSelectedSauce}
+                />
 
                 {/* Side Selection */}
-                {itemData.customizations?.sides && (
-                  <div>
-                    <h3 className="text-lg font-semibold mb-3">Add a Side</h3>
-                    <select
-                      className="select select-bordered w-full"
-                      value={selectedSide}
-                      onChange={(e) =>
-                        setSelectedSide(parseInt(e.target.value))
-                      }
-                    >
-                      {itemData.customizations?.sides.map((side, index) => (
-                        <option key={index} value={index}>
-                          {side.name}{' '}
-                          {side.price > 0 && `(+$${side.price.toFixed(2)})`}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                )}
+                <SideSelection
+                  sides={itemData.customizations?.sides}
+                  selectedSide={selectedSide}
+                  onSideChange={setSelectedSide}
+                />
 
                 {/* Quantity */}
                 <div>
@@ -418,79 +369,57 @@ export default function MenuItemPage() {
                   </>
                 )}
               </button>
-
-              {/* Nutrition Info */}
-              {itemData.nutrition && (
-                <div className="card bg-base-200">
-                  <div className="card-body">
-                    <h3 className="card-title text-lg">
-                      Nutrition Information
-                    </h3>
-                    <div className="grid grid-cols-2 gap-4 text-sm">
-                      {itemData.nutrition.calories && (
-                        <div>
-                          Calories:{' '}
-                          <strong>{itemData.nutrition.calories}</strong>
-                        </div>
-                      )}
-                      {itemData.nutrition.protein && (
-                        <div>
-                          Protein: <strong>{itemData.nutrition.protein}</strong>
-                        </div>
-                      )}
-                      {itemData.nutrition.carbs && (
-                        <div>
-                          Carbs: <strong>{itemData.nutrition.carbs}</strong>
-                        </div>
-                      )}
-                      {itemData.nutrition.fat && (
-                        <div>
-                          Fat: <strong>{itemData.nutrition.fat}</strong>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* Ingredients */}
-              {itemData.ingredients && itemData.ingredients.length > 0 && (
-                <div className="mt-6">
-                  <h3 className="text-lg font-semibold mb-3">Ingredients</h3>
-                  <div className="flex flex-wrap gap-2">
-                    {itemData.ingredients.map((ingredient, index) => (
-                      <span key={index} className="badge badge-outline">
-                        {ingredient}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )}
             </div>
           </div>
 
-          {/* Enhanced Menu Item Experience - Sonny's BBQ Style */}
-          <div className="space-y-8 mt-16">
+          {/* Order Options Section */}
+          <OrderOptions itemName={itemData.name} />
+
+          {/* Menu Item Accordion Section */}
+          <div className="space-y-4 mt-16">
             {/* Sidekicks Section */}
-            <SidekicksCarousel
-              title="Add Sidekicks"
-              collapsible={true}
-              showPrices={true}
-            />
+            <div className="collapse collapse-arrow bg-base-100 border border-base-300">
+              <input type="radio" name="menu-accordion" />
+              <div className="collapse-title text-xl font-semibold">
+                SIDEKICKS
+              </div>
+              <div className="collapse-content">
+                <SidekicksCarousel
+                  title=""
+                  collapsible={false}
+                  showPrices={true}
+                />
+              </div>
+            </div>
 
             {/* Sauces Section */}
-            <SaucesCarousel
-              title="Take Home Our Signature Sauces"
-              collapsible={true}
-              showPrices={true}
-            />
+            <div className="collapse collapse-arrow bg-base-100 border border-base-300">
+              <input type="radio" name="menu-accordion" />
+              <div className="collapse-title text-xl font-semibold">
+                ALL DA SMOKE SAUCES
+              </div>
+              <div className="collapse-content">
+                <SaucesCarousel
+                  title=""
+                  collapsible={false}
+                  showPrices={true}
+                />
+              </div>
+            </div>
 
-            {/* Drinks Section */}
-            <DrinksGrid
-              title="Complete Your Meal"
-              collapsible={true}
-              compact={true}
-            />
+            {/* Nutrition Section */}
+            <div className="collapse collapse-arrow bg-base-100 border border-base-300">
+              <input type="radio" name="menu-accordion" />
+              <div className="collapse-title text-xl font-semibold">
+                NUTRITION
+              </div>
+              <div className="collapse-content">
+                <div className="py-4">
+                  <NutritionInfo nutrition={itemData.nutrition} />
+                  <IngredientsDisplay ingredients={itemData.ingredients} />
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Back Button */}

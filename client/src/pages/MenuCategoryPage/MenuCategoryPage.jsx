@@ -65,14 +65,6 @@ export default function MenuCategoryPage() {
         <div className="container mx-auto px-4 py-16">
           {/* Menu Items Grid */}
           <MenuItemGrid items={categoryInfo.items} category={category} />
-
-          {/* Back to Menu Button */}
-          <div className="text-center mt-16">
-            <Link to="/menu" className="btn btn-outline btn-lg">
-              <i className="bi bi-caret-left-fill mr-2"></i>
-              Back to Full Menu
-            </Link>
-          </div>
         </div>
       </HeroLayout>
     </div>

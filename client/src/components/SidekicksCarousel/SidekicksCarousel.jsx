@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useCart } from '../../context/CartContext';
+import { useCart } from '../../context/useCart';
 
 const SidekicksCarousel = ({ title = "Add Sidekicks", collapsible = false, showPrices = true }) => {
   const [isExpanded, setIsExpanded] = useState(!collapsible);

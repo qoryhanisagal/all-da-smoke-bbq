@@ -1,16 +1,15 @@
 import { contentBackgrounds } from '../../data/backgroundImages';
 import PaginationDots from '../PaginationDots';
-import SectionDivider from '../SectionDivider';
+import DecorativeDots from '../DecorativeDots';
 
 export default function HeroLayout({
   heroImage,
   heroTitle,
   heroSubtitle,
   contentBackgroundImage = contentBackgrounds.woodTexture,
-  heroTitleClass = 'text-primary font-stardos-stencil-bold text-center',
-  heroSubtitleClass = 'text-base-content text-center max-w-2xl leading-relaxed text-lg lg:text-xl',
+  heroTitleClass = 'text-accent font-stardos-stencil-bold text-left text-2xl sm:text-3xl lg:text-4xl',
+  heroSubtitleClass = 'text-primary-content text-left max-w-xs sm:max-w-lg lg:max-w-2xl leading-relaxed text-sm sm:text-base lg:text-lg',
   featuredImage = null,
-  allowStacking = false, // Prop to control stacking behavior
   contentAlignment = 'left', // Prop for main content alignment
   hangingImage = false, // Prop to make featured image hang over like homepage logo
   showDotsDivider = false, // Prop to show horizontal dots before title
@@ -21,18 +20,11 @@ export default function HeroLayout({
   onPaginationDotClick = () => {},
   children,
 }) {
-  // Debug: Log hanging image data
-  console.log('HeroLayout Debug:', {
-    featuredImage,
-    hangingImage,
-    shouldRenderHangingImage: featuredImage && hangingImage
-  });
-
   return (
     <div className="min-h-screen">
       {/* Hero section - this is the big banner area at the top of the page with background image */}
       <div
-        className="hero min-h-96 relative"
+        className="hero min-h-64 sm:min-h-80 lg:min-h-96 relative"
         style={{
           // Using inline styles here because we need dynamic image URLs from props
           backgroundImage: `url(${heroImage})`,
@@ -40,72 +32,78 @@ export default function HeroLayout({
           backgroundPosition: 'center', // Centers the image in the container
         }}
       >
-        {/* Hero content wrapper - centers content and sets max width for readability */}
-        <div className="hero-content text-center lg:text-left w-full max-w-7xl mx-auto px-4 sm:px-6 lg:p-8">
-          {/* Flex container that stacks only on mobile, side-by-side on tablet and up */}
-          <div
-            className={`flex ${allowStacking ? 'flex-col lg:flex-row' : 'flex-row'} justify-between items-center gap-4 sm:gap-6 lg:gap-8`}
-          >
-            {/* Left side container - holds the main heading and subtitle text */}
-            <div className="flex-1">
-              {/* Main hero title with horizontal dots on the left */}
-              <div className="flex items-center gap-4 mb-6 justify-start">
-                {/* Horizontal dots on the left of title */}
+        {/* Hero content positioned absolutely */}
+        <div className="absolute inset-0 flex items-center text-white">
+          <div className="w-full px-4 sm:px-8 lg:px-28">
+            <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 lg:gap-12">
+              {/* Left side - Text content */}
+              <div className="w-full lg:w-1/2 text-center lg:text-left relative">
+                {/* Decorative dots on the left */}
                 {showDotsDivider && (
-                  <span className="text-accent font-mono tracking-[0.3em] text-base">
-                    ••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
-                  </span>
+                  <div className="absolute -left-12 top-1/2 -translate-y-1/2 hidden lg:flex">
+                    <DecorativeDots
+                      count={8}
+                      orientation="vertical"
+                      size="sm"
+                      color="text-accent"
+                      spacing="gap-2"
+                    />
+                  </div>
                 )}
-                
-                {/* Main hero title */}
+
+                {/* Hero title */}
                 <h1
-                  className={`text-5xl lg:text-6xl xl:text-7xl ${
-                    heroTitleClass || 'text-primary font-stardos-stencil-bold'
+                  className={`mb-2 sm:mb-4 ${
+                    heroTitleClass ||
+                    'text-accent font-stardos-stencil-bold text-2xl sm:text-3xl lg:text-4xl'
                   }`}
+                  style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}
                 >
                   {heroTitle}
                 </h1>
-              </div>
-              {/* Subtitle text - only shows if heroSubtitle prop is provided */}
-              {heroSubtitle && (
-                <p
-                  className={`text-lg max-w-lg ${
-                    heroSubtitleClass || 'text-base-content' // Uses theme's base text color by default
-                  }`}
-                >
-                  {heroSubtitle}
-                </p>
-              )}
-            </div>
 
-            {/* Right side container - reserved for featured image but currently disabled for testing */}
-            {featuredImage && !hangingImage && (
-              <div className="flex-1 flex justify-center lg:justify-end">
-                {/* Image container with responsive sizing - gets bigger on larger screens */}
-                <div className="w-96 sm:w-[32rem] lg:w-[44rem] xl:w-[52rem] 2xl:w-[60rem]">
-                  {/* Featured image */}
-                  <img
-                    src={featuredImage}
-                    alt="Featured content"
-                    className="w-full h-auto object-cover rounded-lg shadow-2xl"
-                  />
-                </div>
+                {/* Subtitle text - only shows if heroSubtitle prop is provided */}
+                {heroSubtitle && (
+                  <p
+                    className={`mb-4 sm:mb-6 max-w-lg mx-auto lg:mx-0 ${
+                      heroSubtitleClass ||
+                      'text-primary-content text-sm sm:text-base lg:text-lg'
+                    }`}
+                    style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.7)' }}
+                  >
+                    {heroSubtitle}
+                  </p>
+                )}
               </div>
-            )}
+
+              {/* Right side - No image here, it will hang outside */}
+              <div className="lg:w-1/2">
+                {/* Spacer to maintain layout balance */}
+              </div>
+            </div>
           </div>
         </div>
 
+        {/* Featured Image section - only shows if not hanging */}
+        {featuredImage && !hangingImage && (
+          <div className="absolute right-4 sm:right-8 lg:right-16 top-1/2 -translate-y-1/2 z-20">
+            <img
+              src={featuredImage}
+              alt="Featured content"
+              className="w-64 h-48 sm:w-[32rem] sm:h-80 md:w-[40rem] md:h-96 object-cover drop-shadow-2xl hover:scale-105 transition-transform duration-300 rounded-lg"
+            />
+          </div>
+        )}
+
         {/* Hanging Featured Image - positioned absolutely to hang over hero section with responsive sizing */}
         {featuredImage && hangingImage && (
-          <div className="absolute right-16 sm:right-24 lg:right-48 -bottom-8 sm:-bottom-12 md:-bottom-16 z-30 bg-red-500 p-2">
-            <img 
-              src={featuredImage} 
-              alt="Featured content" 
-              className="w-96 h-56 sm:w-[32rem] sm:h-72 md:w-[40rem] md:h-80 object-cover drop-shadow-2xl hover:scale-105 transition-transform duration-300 rounded-lg border-4 border-yellow-400"
+          <div className="absolute right-16 sm:right-24 lg:right-48 -bottom-8 sm:-bottom-12 md:-bottom-16 z-30">
+            <img
+              src={featuredImage}
+              alt="Featured content"
+              className="w-96 h-56 sm:w-[32rem] sm:h-72 md:w-[40rem] md:h-80 object-cover drop-shadow-2xl hover:scale-105 transition-transform duration-300 rounded-lg"
               width="640"
               height="480"
-              onLoad={() => console.log('Hanging image loaded successfully:', featuredImage)}
-              onError={() => console.log('Hanging image failed to load:', featuredImage)}
             />
           </div>
         )}

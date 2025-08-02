@@ -1,6 +1,8 @@
-import categories from '../../data/categories';
+import { useFirebaseMenu } from '../../hooks/useFirebaseMenu';
 
 const CategoryTabs = ({ selected, onChange }) => {
+  const { categories } = useFirebaseMenu();
+  
   const handleCategoryClick = (value) => {
     if (onChange) {
       onChange(value);
@@ -9,15 +11,15 @@ const CategoryTabs = ({ selected, onChange }) => {
 
   return (
     <div className="w-full">
-      {/* Header */}
-      <div className="text-center mb-6">
+      {/* Desktop Header - Hidden on mobile */}
+      <div className="text-center mb-6 hidden lg:block">
         <h2 className="text-lg font-stardos-stencil-bold text-base-content tracking-wider">
           JUMP TO A CATEGORY
         </h2>
       </div>
 
-      {/* Category List */}
-      <div className="space-y-0">
+      {/* Desktop Category List - Vertical layout */}
+      <div className="space-y-0 hidden lg:block">
         {categories.map(({ name, description }) => (
           <button
             key={name}
@@ -27,11 +29,31 @@ const CategoryTabs = ({ selected, onChange }) => {
                 : 'border-base-300 bg-base-100 text-base-content hover:bg-base-200 hover:border-base-300'
             }`}
             onClick={() => handleCategoryClick(name)}
-            title={description} // Show description on hover
+            title={description}
           >
             {name}
           </button>
         ))}
+      </div>
+
+      {/* Mobile Category Tabs - Horizontal scrollable layout */}
+      <div className="lg:hidden">
+        <div className="flex overflow-x-auto scrollbar-hide space-x-1 pb-4">
+          {categories.map(({ name, description }) => (
+            <button
+              key={name}
+              className={`flex-shrink-0 px-4 py-3 text-sm font-bold uppercase tracking-wider transition-all duration-150 whitespace-nowrap ${
+                selected === name
+                  ? 'bg-primary text-primary-content border-b-2 border-primary'
+                  : 'bg-base-200 text-base-content hover:bg-base-300'
+              }`}
+              onClick={() => handleCategoryClick(name)}
+              title={description}
+            >
+              {name}
+            </button>
+          ))}
+        </div>
       </div>
     </div>
   );

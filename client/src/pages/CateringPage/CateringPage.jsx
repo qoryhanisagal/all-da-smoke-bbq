@@ -10,8 +10,6 @@ export default function CateringPage() {
         heroImage={heroBackgrounds.hero1}
         heroTitle="Catering Services"
         heroSubtitle="Let us bring the authentic BBQ experience to your next event"
-        heroTitleClass="text-accent font-stardos-stencil-bold px-4 text-center md:text-left text-6xl lg:text-7xl xl:text-8xl leading-tight"
-        heroSubtitleClass="text-left-aligned whitespace-nowrap font-stardos-stencil-normal text-accent-content"
       >
         <div className="container mx-auto px-4 py-16">
           <div className="text-center">

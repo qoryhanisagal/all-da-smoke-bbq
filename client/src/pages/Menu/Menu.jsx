@@ -1,259 +1,211 @@
-import { useEffect, useState } from 'react';
-import { ref, onValue, get } from 'firebase/database';
-import { database } from '../../config/firebase';
-import SidekicksCarousel from '../../components/SidekicksCarousel';
-import SaucesCarousel from '../../components/SaucesCarousel';
-import DrinksGrid from '../../components/DrinksGrid';
+import { useState, useMemo, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import CategoryTabs from '../../components/CategoryTabs';
+import MenuCarousel from '../../components/MenuCarousel';
+import MenuListView from '../../components/MenuListView';
+import ViewToggle from '../../components/ViewToggle';
+import FAQs from '../../components/FAQs/FAQs';
+import { menuFAQs } from '../../data/faqs';
+import HeroLayout from '../../components/HeroLayout/HeroLayout';
+import LoadingSpinner from '../../components/LoadingSpinner';
+import { useFirebaseMenu } from '../../hooks/useFirebaseMenu';
+import {
+  heroBackgrounds,
+  contentBackgrounds,
+} from '../../data/backgroundImages';
 
-export default function Menu() {
-  const [menuData, setMenuData] = useState(null);
-  const [categories, setCategories] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [connectionStatus, setConnectionStatus] = useState('Checking...');
+const Menu = () => {
+  const navigate = useNavigate();
+  const { categories, loading, error, getMenuByCategory } =
+    useFirebaseMenu();
+  const [selectedCategory, setSelectedCategory] = useState('');
+  const [viewMode, setViewMode] = useState('carousel');
 
+  // Set initial category when categories load
   useEffect(() => {
-    // Test Firebase connection first
-    const testConnection = async () => {
-      try {
-        setConnectionStatus('Testing connection...');
+    if (categories.length > 0 && !selectedCategory) {
+      setSelectedCategory(categories[0].name);
+    }
+  }, [categories, selectedCategory]);
 
-        // Test by reading a simple value
-        const testRef = ref(database, '.info/connected');
-        onValue(testRef, (snapshot) => {
-          const connected = snapshot.val();
-          setConnectionStatus(
-            connected ? '✅ Connected to Firebase' : '❌ Not connected'
-          );
-        });
+  // Group menu items by category for easy section display
+  const menuByCategory = useMemo(() => {
+    return getMenuByCategory();
+  }, [getMenuByCategory]);
 
-        // Load menu data
-        const menuRef = ref(database, 'menu');
-        const menuSnapshot = await get(menuRef);
-
-        if (menuSnapshot.exists()) {
-          const data = menuSnapshot.val();
-          console.log('Menu data loaded:', data);
-          setMenuData(data);
-        } else {
-          console.log('No menu data found');
-          setError('No menu data found in Firebase');
-        }
-
-        // Load categories
-        const categoriesRef = ref(database, 'categories');
-        const categoriesSnapshot = await get(categoriesRef);
-
-        if (categoriesSnapshot.exists()) {
-          const data = categoriesSnapshot.val();
-          console.log('Categories loaded:', data);
-          setCategories(data);
-        }
-
-        setLoading(false);
-      } catch (err) {
-        console.error('Firebase error:', err);
-        setError(err.message);
-        setLoading(false);
-      }
+  // Generate category slug from category name
+  const getCategorySlug = (categoryName) => {
+    const categorySlugMap = {
+      'SIGNATURE BBQ': 'signature-bbq',
+      'BBQ SANDWICHES': 'bbq-sandwiches',
+      'PITMASTER LUNCH PLATES': 'lunch-plates',
+      'BBQ BY THE POUND': 'bbq-by-pound',
+      'FAMILY MEALS': 'family-meals',
+      'FRESH BITES': 'fresh-bites',
+      'PITMASTER PICKS': 'pitmaster-picks',
+      SIDEKICKS: 'sides',
+      DESSERTS: 'desserts',
+      BEVERAGES: 'beverages',
+      'SAUCES & RUBS': 'sauces-rubs',
     };
+    return (
+      categorySlugMap[categoryName] ||
+      categoryName.toLowerCase().replace(/[^a-z0-9]/g, '-')
+    );
+  };
 
-    testConnection();
-  }, []);
+  // Generate item slug from item name/title (Firebase uses 'title' field)
+  const getItemSlug = (item) => {
+    const itemName = item.title || item.name;
+    return itemName ? itemName.toLowerCase().replace(/[^a-z0-9]/g, '-') : '';
+  };
+
+  const handleOrderClick = (item) => {
+    const categorySlug = getCategorySlug(item.category);
+    const itemSlug = getItemSlug(item);
+    const navigationPath = `/menu/${categorySlug}/${itemSlug}`;
+    navigate(navigationPath);
+  };
+
+  const handleItemClick = (item) => {
+    const categorySlug = getCategorySlug(item.category);
+    const itemSlug = getItemSlug(item);
+    const navigationPath = `/menu/${categorySlug}/${itemSlug}`;
+    navigate(navigationPath);
+  };
+
+  // Create a unique HTML id for each category section for scroll navigation
+  const getSectionId = (categoryName) => {
+    return categoryName.toLowerCase().replace(/[^a-z0-9]/g, '-');
+  };
+
+  // When the selected category changes, scroll the right content area to show that section
+  useEffect(() => {
+    const sectionId = getSectionId(selectedCategory);
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, [selectedCategory]);
 
   if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <span className="loading loading-spinner loading-lg text-primary"></span>
-          <p className="mt-4 text-lg">Loading menu from Firebase...</p>
-        </div>
-      </div>
-    );
+    return <LoadingSpinner message="Loading Menu..." />;
   }
 
   if (error) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="alert alert-error max-w-md">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="stroke-current shrink-0 h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
-            />
-          </svg>
-          <div>
-            <h3 className="font-bold">Error!</h3>
-            <div className="text-xs">{error}</div>
-          </div>
+        <div className="text-center">
+          <h2 className="text-2xl font-semibold mb-2 text-error">
+            Error Loading Menu
+          </h2>
+          <p className="text-base-content/70">{error}</p>
         </div>
       </div>
     );
   }
 
-  // Convert menu object to array
-  const menuArray = menuData
-    ? Object.entries(menuData).map(([key, item]) => ({
-        ...item,
-        firebaseKey: key,
-      }))
-    : [];
-
   return (
-    <div className="min-h-screen bg-base-100 p-8">
-      <div className="container mx-auto">
-        <h1 className="text-4xl font-bold mb-8">Firebase Menu Test</h1>
-
-        {/* Connection Status */}
-        <div className="alert alert-info mb-6">
-          <span>Firebase Status: {connectionStatus}</span>
-        </div>
-
-        {/* Debug Info */}
-        <div className="card bg-base-200 mb-8">
-          <div className="card-body">
-            <h2 className="card-title">Debug Info</h2>
-            <ul className="list-disc list-inside">
-              <li>Menu items loaded: {menuArray.length}</li>
-              <li>
-                Categories loaded:{' '}
-                {categories ? Object.keys(categories).length : 0}
-              </li>
-            </ul>
+    <div data-theme="lofi" className="overflow-x-hidden">
+      <HeroLayout
+        heroImage={heroBackgrounds.hero1}
+        heroTitle="Our Menu"
+        heroSubtitle="Authentic BBQ crafted with passion. From smoky brisket to tender ribs, discover the flavors that make us legendary."
+        contentBackgroundImage={contentBackgrounds.smokeTexture}
+        contentAlignment="center"
+      >
+        <div className="container mx-auto max-w-full px-4 py-8">
+          {/* Mobile Category Navigation */}
+          <div className="lg:hidden mb-6">
+            <CategoryTabs
+              selected={selectedCategory}
+              onChange={setSelectedCategory}
+            />
           </div>
-        </div>
 
-        {/* Menu Items */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
-          {menuArray.map((item) => (
-            <div
-              key={item.firebaseKey}
-              className="card card-border bg-base-100"
-            >
-              <div className="card-body">
-                <h3 className="card-title text-lg">{item.title}</h3>
-                <p className="text-sm">{item.description}</p>
-                <div className="card-actions justify-between items-center mt-4">
-                  <span className="text-xl font-bold">${item.price}</span>
-                  <div className="badge badge-primary">{item.category}</div>
-                </div>
-                <div className="text-xs text-base-content/60 mt-2">
-                  Key: {item.firebaseKey}
-                </div>
+          {/* View Toggle and Catering Link */}
+          <div className="flex flex-col sm:flex-row justify-between items-center mb-8 gap-4">
+            <ViewToggle view={viewMode} onChange={setViewMode} />
+            <div className="text-sm">
+              Looking for catering? 
+              <a href="/catering" className="text-primary font-semibold ml-1 hover:underline">
+                Head over here
+              </a>
+            </div>
+          </div>
+
+          {/* Desktop Layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+            {/* Desktop Sidebar */}
+            <div className="lg:col-span-1 hidden lg:block">
+              <div className="sticky top-4">
+                <CategoryTabs
+                  selected={selectedCategory}
+                  onChange={setSelectedCategory}
+                />
               </div>
             </div>
-          ))}
-        </div>
 
-        {/* Component Testing Section */}
-        <div className="divider my-12">
-          <h2 className="text-2xl font-bold">New Components Testing</h2>
-        </div>
+            {/* Main menu content */}
+            <div className="lg:col-span-3">
+              {/* Render each category and its menu items */}
+              {categories.map((category, index) => {
+                const categoryItems = menuByCategory[category.name];
 
-        {/* Sidekicks Carousel Test */}
-        <div className="mb-12">
-          <SidekicksCarousel 
-            title="Sidekicks Carousel - Standard View" 
-            collapsible={false}
-            showPrices={true}
-          />
-        </div>
+                // Skip categories with no items
+                if (!categoryItems || categoryItems.length === 0) {
+                  return null;
+                }
 
-        {/* Sidekicks Carousel Collapsible Test */}
-        <div className="mb-12">
-          <SidekicksCarousel 
-            title="Sidekicks Carousel - Collapsible" 
-            collapsible={true}
-            showPrices={true}
-          />
-        </div>
+                return (
+                  <div key={category.id}>
+                    <section
+                      id={getSectionId(category.name)}
+                      className="mb-12 scroll-mt-20"
+                    >
+                      {/* Category header - smaller on mobile */}
+                      <div className="mb-6">
+                        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-base-content mb-2">
+                          {category.name}
+                        </h2>
+                        {category.description && (
+                          <p className="text-base-content/70 text-sm md:text-base max-w-2xl">
+                            {category.description}
+                          </p>
+                        )}
+                      </div>
 
-        {/* Sauces Carousel Test */}
-        <div className="mb-12">
-          <SaucesCarousel 
-            title="Sauces Carousel - Standard View"
-            collapsible={false}
-            showPrices={true}
-          />
-        </div>
+                      {/* Menu items - toggle between carousel and list view */}
+                      {viewMode === 'carousel' ? (
+                        <MenuCarousel
+                          items={categoryItems}
+                          onItemClick={handleItemClick}
+                          onOrderClick={handleOrderClick}
+                        />
+                      ) : (
+                        <MenuListView
+                          items={categoryItems}
+                          onItemClick={handleItemClick}
+                          onOrderClick={handleOrderClick}
+                        />
+                      )}
+                    </section>
 
-        {/* Sauces Carousel Collapsible Test */}
-        <div className="mb-12">
-          <SaucesCarousel 
-            title="Sauces Carousel - Collapsible"
-            collapsible={true}
-            showPrices={true}
-          />
-        </div>
-
-        {/* Drinks Grid Test - Compact */}
-        <div className="mb-12">
-          <DrinksGrid 
-            title="Drinks Grid - Compact View"
-            collapsible={false}
-            compact={true}
-          />
-        </div>
-
-        {/* Drinks Grid Test - Full */}
-        <div className="mb-12">
-          <DrinksGrid 
-            title="Drinks Grid - Full View"
-            collapsible={false}
-            compact={false}
-          />
-        </div>
-
-        {/* Drinks Grid Test - Collapsible */}
-        <div className="mb-12">
-          <DrinksGrid 
-            title="Drinks Grid - Collapsible"
-            collapsible={true}
-            compact={true}
-          />
-        </div>
-
-        {/* Combined Test - Menu Item Page Style */}
-        <div className="mb-12 bg-base-200 p-6 rounded-lg">
-          <h3 className="text-2xl font-bold mb-6">Menu Item Page Style Preview</h3>
-          <div className="space-y-8">
-            <SidekicksCarousel 
-              title="Sidekicks" 
-              collapsible={true}
-              showPrices={true}
-            />
-            <SaucesCarousel 
-              title="Add Our Signature Sauces"
-              collapsible={true}  
-              showPrices={true}
-            />
-            <DrinksGrid 
-              title="Add a Drink"
-              collapsible={true}
-              compact={true}
-            />
+                    {/* Divider between categories */}
+                    {index < categories.length - 1 && (
+                      <div className="border-t border-base-300 my-8"></div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
           </div>
+          {/* To show menu FAQs, uncomment the line below */}
+          <FAQs faqs={menuFAQs} title="Menu FAQs" />
         </div>
-
-        {/* Raw Data Preview */}
-        <details className="collapse collapse-arrow bg-base-200 mt-8">
-          <summary className="collapse-title text-xl font-medium">
-            View Raw Data
-          </summary>
-          <div className="collapse-content">
-            <pre className="text-xs overflow-auto">
-              {JSON.stringify({ menu: menuData, categories }, null, 2)}
-            </pre>
-          </div>
-        </details>
-      </div>
+      </HeroLayout>
     </div>
   );
-}
+};
+
+export default Menu;

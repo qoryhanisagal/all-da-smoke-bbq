@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useCart } from '../../context/CartContext';
+import { useCart } from '../../context/useCart';
 
 const DrinksGrid = ({ title = "Complete Your Meal", collapsible = false, compact = true }) => {
   const [isExpanded, setIsExpanded] = useState(!collapsible);

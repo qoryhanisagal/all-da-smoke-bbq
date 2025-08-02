@@ -7,7 +7,7 @@ export default function FAQsPage() {
   return (
     <div data-theme="lofi">
       <HeroLayout
-        allowStacking={true}
+        allowStacking={false}
         heroImage={heroBackgrounds.hero1}
         heroTitle="Frequently Asked Questions"
         heroSubtitle="Find answers to commonly asked questions about our BBQ, menu, catering, and more."

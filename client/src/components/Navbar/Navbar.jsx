@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import logo from '/src/assets/img/logo1.png';
-import { useCart } from '../../context/CartContext';
+import { useCart } from '../../context/useCart';
 import { useFirebaseMenu } from '../../hooks/useFirebaseMenu';
 import Cart from '../Cart/Cart';
 
@@ -45,32 +45,38 @@ export default function Navbar() {
       <div className="navbar sticky top-0 z-40 bg-black px-6 py-4">
         <div className="relative flex items-center justify-between w-full max-w-8xl mx-auto">
           {/* Left Links */}
-          <div className="hidden lg:flex gap-8 items-center font-[var(--font-anton)] text-white uppercase tracking-wide">
+          <div className="hidden lg:flex gap-8 items-center font-[var(--font-anton)] text-white uppercase tracking-wide -ml-3">
             {/* Menu Dropdown */}
             <div className="dropdown dropdown-hover">
               <div tabIndex={0} role="button" className="hover:text-primary transition-colors duration-200 text-lg font-bold cursor-pointer">
                 Our Menu
                 <i className="bi bi-chevron-down ml-1 text-sm"></i>
               </div>
-              <ul tabIndex={0} className="dropdown-content menu bg-base-100 text-base-content rounded-box z-50 w-52 p-2 shadow-lg mt-2">
-                <li>
-                  <Link to="/menu" className="font-medium">
-                    <i className="bi bi-list-ul"></i>
-                    View All Menu
+              <div tabIndex={0} className="dropdown-content bg-white z-[60] w-auto min-w-[150px] shadow-lg">
+                <div className="py-2">
+                  <Link 
+                    to="/menu"
+                    className="block px-4 py-2 text-base font-medium text-black hover:text-primary transition-colors duration-200 border-b-2 border-transparent hover:border-primary"
+                    onClick={() => {
+                      document.activeElement?.blur();
+                    }}
+                  >
+                    View Full Menu
                   </Link>
-                </li>
-                <li><hr className="my-1" /></li>
-                {categories.map((category) => (
-                  <li key={category.id}>
+                  {categories.slice(0, 6).map((category) => (
                     <Link 
+                      key={category.id}
                       to={`/menu/${getCategorySlug(category.name)}`}
-                      className="text-sm"
+                      className="block px-4 py-2 text-base font-medium text-black hover:text-primary transition-colors duration-200 border-b-2 border-transparent hover:border-primary"
+                      onClick={() => {
+                        document.activeElement?.blur();
+                      }}
                     >
                       {category.name}
                     </Link>
-                  </li>
-                ))}
-              </ul>
+                  ))}
+                </div>
+              </div>
             </div>
             <Link to="/order" className="btn btn-primary rounded-full px-6 py-2 text-white font-bold uppercase text-lg">
               Order Online
@@ -80,7 +86,7 @@ export default function Navbar() {
           </div>
 
           {/* Center Logo - Hanging over navbar */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 -top-8 z-50">
+          <div className="absolute left-1/2 -translate-x-1/2 -top-8 z-50 ml-8">
             <Link to="/">
               <img 
                 src={logo} 
@@ -91,7 +97,7 @@ export default function Navbar() {
           </div>
 
           {/* Right Links + Cart + Hamburger */}
-          <div className="hidden lg:flex gap-6 items-center font-[var(--font-anton)] text-white uppercase tracking-wide">
+          <div className="hidden lg:flex gap-6 items-center font-[var(--font-anton)] text-white uppercase tracking-wide -mr-4">
             <Link to="/gallery" className="hover:text-primary transition-colors duration-200 text-lg font-bold">Gallery</Link>
             <Link to="/contact" className="hover:text-primary transition-colors duration-200 text-lg font-bold">Contact</Link>
             <Link to="/faqs" className="hover:text-primary transition-colors duration-200 text-lg font-bold">FAQs</Link>

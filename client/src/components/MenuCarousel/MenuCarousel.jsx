@@ -8,8 +8,8 @@ const MenuCarousel = ({ items, onItemClick, onOrderClick }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const carouselRef = useRef(null);
 
-  // Only paginate the first 3 items for now, matching the previous static dot count
-  const pageCount = Math.min(3, items.length);
+  // Paginate through all items
+  const pageCount = items.length;
 
   // Scroll to the selected item when a dot is clicked
   const handleDotClick = (index) => {
