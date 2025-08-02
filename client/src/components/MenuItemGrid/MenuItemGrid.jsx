@@ -67,6 +67,25 @@ const MenuItemGrid = ({ items, category }) => {
                 Popular
               </div>
             )}
+            
+            {/* Heat Level for Sauces */}
+            {category === 'sauces-rubs' && item.heatLevel && (
+              <div className="absolute top-2 right-2 bg-base-100/90 px-2 py-1 rounded flex items-center space-x-1">
+                {Array.from({ length: 5 }, (_, i) => (
+                  <i 
+                    key={i} 
+                    className={`bi bi-fire ${i < item.heatLevel ? 'text-error' : 'text-base-300'} text-xs`}
+                  ></i>
+                ))}
+              </div>
+            )}
+            
+            {/* Category badge for beverages */}
+            {category === 'beverages' && item.category && (
+              <div className="badge badge-outline absolute top-2 right-2 text-xs bg-base-100/90">
+                {item.category}
+              </div>
+            )}
             {/* Hover overlay with actions */}
             <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-black bg-opacity-50 transition-all duration-300 flex items-center justify-center gap-4">
               <Link 
@@ -91,8 +110,37 @@ const MenuItemGrid = ({ items, category }) => {
             <h3 className="card-title text-sm sm:text-base font-bold text-center mb-2">
               {item.title || item.name}
             </h3>
+            
+            {/* Brief description for enhanced categories */}
+            {(category === 'sauces-rubs' || category === 'beverages' || category === 'sides') && item.description && (
+              <p className="text-xs text-base-content/70 text-center mb-2 line-clamp-2">
+                {item.description}
+              </p>
+            )}
+            
+            {/* Tags for sauces */}
+            {category === 'sauces-rubs' && item.tags && item.tags.length > 0 && (
+              <div className="flex flex-wrap gap-1 justify-center mb-2">
+                {item.tags.slice(0, 2).map((tag, index) => (
+                  <span key={index} className="badge badge-outline badge-xs">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            )}
+            
             <div className="text-center">
-              <span className="text-lg font-bold text-primary">{item.price}</span>
+              <span className="text-lg font-bold text-primary">
+                {typeof item.price === 'string' ? item.price : `$${item.price?.toFixed(2)}`}
+              </span>
+              {/* Size indicator for bottles */}
+              {category === 'sauces-rubs' && (
+                <div className="text-xs text-base-content/50 mt-1">16oz bottle</div>
+              )}
+              {/* Size options for drinks/sides */}
+              {(category === 'beverages' || category === 'sides') && (
+                <div className="text-xs text-base-content/50 mt-1">Multiple sizes available</div>
+              )}
             </div>
           </div>
         </div>

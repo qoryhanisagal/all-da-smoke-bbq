@@ -60,7 +60,7 @@ export default function MenuCategoryPage() {
         heroImage={heroBackgrounds.hero1}
         heroTitle={categoryInfo.name}
         heroSubtitle={categoryInfo.description}
-        allowStacking={false}
+        allowStacking={true}
       >
         <div className="container mx-auto px-4 py-16">
           {/* Menu Items Grid */}

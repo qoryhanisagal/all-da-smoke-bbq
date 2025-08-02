@@ -1,0 +1,44 @@
+{
+  "bbq-sandwiches": {
+    "name": "BBQ SANDWICHES",
+    "slug": "bbq-sandwiches",
+    "description": "Authentic BBQ sandwiches served with shoestring fries and sauce",
+    "image": "https://picsum.photos/400/300?random=1"
+  },
+  "signature-bbq": {
+    "name": "SIGNATURE BBQ", 
+    "slug": "signature-bbq",
+    "description": "Slow smoked meats cooked to perfection",
+    "image": "https://picsum.photos/400/300?random=51"
+  },
+  "pitmaster-picks": {
+    "name": "PITMASTER PICKS",
+    "slug": "pitmaster-picks", 
+    "description": "Texas toast plates with choice of meats and sides",
+    "image": "https://picsum.photos/400/300?random=52"
+  },
+  "sidekicks": {
+    "name": "SIDEKICKS",
+    "slug": "sides",
+    "description": "Traditional Southern sides made from scratch", 
+    "image": "https://picsum.photos/400/300?random=11"
+  },
+  "desserts": {
+    "name": "DESSERTS",
+    "slug": "desserts",
+    "description": "Homemade desserts to sweeten your meal",
+    "image": "https://picsum.photos/400/300?random=41"
+  },
+  "beverages": {
+    "name": "BEVERAGES",
+    "slug": "beverages", 
+    "description": "Refreshing drinks to complement your meal",
+    "image": "https://picsum.photos/400/300?random=31"
+  },
+  "sauces-rubs": {
+    "name": "SAUCES & RUBS",
+    "slug": "sauces-rubs",
+    "description": "House-made sauces and rubs",
+    "image": "https://picsum.photos/400/300?random=21"
+  }
+}

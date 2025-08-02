@@ -1,0 +1,2057 @@
+=== FIREBASE CATEGORIES ===
+{
+  "bbq-sandwiches": {
+    "name": "BBQ SANDWICHES",
+    "slug": "bbq-sandwiches",
+    "description": "Authentic BBQ sandwiches served with shoestring fries and sauce",
+    "image": "https://picsum.photos/400/300?random=5"
+  },
+  "signature-bbq": {
+    "name": "SIGNATURE BBQ",
+    "slug": "signature-bbq",
+    "description": "Slow smoked meats cooked to perfection",
+    "image": "https://picsum.photos/400/300?random=58"
+  },
+  "pitmaster-picks": {
+    "name": "PITMASTER PICKS",
+    "slug": "pitmaster-picks",
+    "description": "Texas toast plates with choice of meats and sides",
+    "image": "https://picsum.photos/400/300?random=59"
+  },
+  "sidekicks": {
+    "name": "SIDEKICKS",
+    "slug": "sides",
+    "description": "Traditional Southern sides made from scratch",
+    "image": "https://picsum.photos/400/300?random=12"
+  },
+  "desserts": {
+    "name": "DESSERTS",
+    "slug": "desserts",
+    "description": "Homemade desserts to sweeten your meal",
+    "image": "https://picsum.photos/400/300?random=46"
+  },
+  "beverages": {
+    "name": "BEVERAGES",
+    "slug": "beverages",
+    "description": "Refreshing drinks to complement your meal",
+    "image": "https://picsum.photos/400/300?random=36"
+  },
+  "sauces-rubs": {
+    "name": "SAUCES & RUBS",
+    "slug": "sauces-rubs",
+    "description": "House-made sauces and rubs",
+    "image": "https://picsum.photos/400/300?random=26"
+  }
+}
+
+=== FIREBASE MENU ITEMS ===
+{
+  "pulled-pork-sandwich": {
+    "title": "Pulled Pork Sandwich",
+    "name": "Pulled Pork Sandwich",
+    "category": "BBQ SANDWICHES",
+    "price": 12.99,
+    "description": "Tender pulled pork slow-smoked to perfection, served on a brioche bun with shoestring fries.",
+    "longDescription": "Experience our mouthwatering Pulled Pork, slow-cooked to perfection and brimming with flavor. Served with our signature shoestring fries and your choice of sauce.",
+    "image": "https://picsum.photos/400/300?random=1",
+    "popular": true,
+    "customizations": {
+      "sizes": [
+        {
+          "name": "Regular",
+          "price": 0
+        },
+        {
+          "name": "Large",
+          "price": 2
+        }
+      ],
+      "sauces": [
+        {
+          "name": "Original BBQ",
+          "price": 0,
+          "description": "Our Original House BBQ Sauce is a timeless classic, offering a rich and savory flavor with just the right touch of tang."
+        },
+        {
+          "name": "Sweet & Spicy",
+          "price": 0,
+          "description": "Our Sweet & Spicy House BBQ Sauce offers the perfect balance of rich sweetness and a fiery kick."
+        },
+        {
+          "name": "Peach Bourbon",
+          "price": 0,
+          "description": "Our Peach Bourbon BBQ Sauce offers a unique blend of sweet, juicy peaches and the warm, smoky notes of bourbon."
+        },
+        {
+          "name": "Carolina Gold",
+          "price": 0,
+          "description": "Our Carolina Gold Sauce is a tangy and zesty twist on a Southern classic with a distinctive mustard bite."
+        }
+      ],
+      "sides": [
+        {
+          "name": "Shoestring Fries (included)",
+          "price": 0
+        },
+        {
+          "name": "Mac & Cheese",
+          "price": 1,
+          "description": "Indulge in creamy macaroni infused with smoky flavors, a comforting classic that's irresistibly cheesy."
+        },
+        {
+          "name": "Baked Beans",
+          "price": 1,
+          "description": "Sink your teeth into our BBQ Baked Beans, slow-cooked to perfection with a tangy sauce and savory chunks of bacon."
+        },
+        {
+          "name": "Collard Greens",
+          "price": 1,
+          "description": "Experience the bold flavors of our Collard Greens, simmered to perfection with onions, garlic, and a hint of smoky goodness."
+        },
+        {
+          "name": "Cole Slaw",
+          "price": 1,
+          "description": "Savor the crisp freshness of our Coleslaw, a perfect balance of crunchy cabbage and creamy dressing."
+        },
+        {
+          "name": "Green Beans",
+          "price": 1,
+          "description": "Our Southern-style green beans, simmered to perfection with onions and spices, bring the warmth of home-cooked goodness to your plate."
+        },
+        {
+          "name": "Candied Yams",
+          "price": 1,
+          "description": "Savor the sweetness of our Candied Yams, tenderly baked with a caramelized glaze and warm spices."
+        },
+        {
+          "name": "Black Eyed Peas",
+          "price": 1,
+          "description": "Delight in the hearty goodness of our Black-Eyed Peas, slow-simmered with aromatic spices for a rich, comforting flavor."
+        },
+        {
+          "name": "Potato Salad",
+          "price": 1,
+          "description": "Relish the tangy crunch of our Potato Salad, a harmonious blend of tender potatoes, crisp vegetables, and zesty dressing."
+        },
+        {
+          "name": "Fire Roasted Corn",
+          "price": 1,
+          "description": "Sweet corn roasted over open flames for that perfect smoky flavor."
+        },
+        {
+          "name": "Texas Toast",
+          "price": 1,
+          "description": "Thick-cut bread toasted to golden perfection with garlic butter."
+        }
+      ]
+    },
+    "ingredients": [
+      "Pork Shoulder",
+      "House Rub",
+      "Brioche Bun",
+      "Pickles",
+      "Onions"
+    ],
+    "allergens": [
+      "Gluten",
+      "Soy"
+    ]
+  },
+  "chopped-brisket-sandwich": {
+    "title": "Chopped Brisket Sandwich",
+    "name": "Chopped Brisket Sandwich",
+    "category": "BBQ SANDWICHES",
+    "price": 14.99,
+    "description": "12-hour smoked Angus brisket chopped and served on Texas toast with shoestring fries.",
+    "longDescription": "Our signature 12-hour smoked Angus brisket with perfect bark and juicy inside, chopped and piled high on Texas toast.",
+    "image": "https://picsum.photos/400/300?random=2",
+    "popular": true,
+    "customizations": {
+      "sizes": [
+        {
+          "name": "Regular",
+          "price": 0
+        },
+        {
+          "name": "Large",
+          "price": 2.5
+        }
+      ],
+      "sauces": [
+        {
+          "name": "Original BBQ",
+          "price": 0,
+          "description": "Our Original House BBQ Sauce is a timeless classic, offering a rich and savory flavor with just the right touch of tang."
+        },
+        {
+          "name": "Sweet & Spicy",
+          "price": 0,
+          "description": "Our Sweet & Spicy House BBQ Sauce offers the perfect balance of rich sweetness and a fiery kick."
+        },
+        {
+          "name": "Peach Bourbon",
+          "price": 0,
+          "description": "Our Peach Bourbon BBQ Sauce offers a unique blend of sweet, juicy peaches and the warm, smoky notes of bourbon."
+        },
+        {
+          "name": "Carolina Gold",
+          "price": 0,
+          "description": "Our Carolina Gold Sauce is a tangy and zesty twist on a Southern classic with a distinctive mustard bite."
+        }
+      ],
+      "sides": [
+        {
+          "name": "Shoestring Fries (included)",
+          "price": 0
+        },
+        {
+          "name": "Mac & Cheese",
+          "price": 1,
+          "description": "Indulge in creamy macaroni infused with smoky flavors, a comforting classic that's irresistibly cheesy."
+        },
+        {
+          "name": "Baked Beans",
+          "price": 1,
+          "description": "Sink your teeth into our BBQ Baked Beans, slow-cooked to perfection with a tangy sauce and savory chunks of bacon."
+        },
+        {
+          "name": "Collard Greens",
+          "price": 1,
+          "description": "Experience the bold flavors of our Collard Greens, simmered to perfection with onions, garlic, and a hint of smoky goodness."
+        },
+        {
+          "name": "Cole Slaw",
+          "price": 1,
+          "description": "Savor the crisp freshness of our Coleslaw, a perfect balance of crunchy cabbage and creamy dressing."
+        },
+        {
+          "name": "Green Beans",
+          "price": 1,
+          "description": "Our Southern-style green beans, simmered to perfection with onions and spices, bring the warmth of home-cooked goodness to your plate."
+        },
+        {
+          "name": "Candied Yams",
+          "price": 1,
+          "description": "Savor the sweetness of our Candied Yams, tenderly baked with a caramelized glaze and warm spices."
+        },
+        {
+          "name": "Black Eyed Peas",
+          "price": 1,
+          "description": "Delight in the hearty goodness of our Black-Eyed Peas, slow-simmered with aromatic spices for a rich, comforting flavor."
+        },
+        {
+          "name": "Potato Salad",
+          "price": 1,
+          "description": "Relish the tangy crunch of our Potato Salad, a harmonious blend of tender potatoes, crisp vegetables, and zesty dressing."
+        },
+        {
+          "name": "Fire Roasted Corn",
+          "price": 1,
+          "description": "Sweet corn roasted over open flames for that perfect smoky flavor."
+        },
+        {
+          "name": "Texas Toast",
+          "price": 1,
+          "description": "Thick-cut bread toasted to golden perfection with garlic butter."
+        }
+      ]
+    },
+    "ingredients": [
+      "Angus Brisket",
+      "House Rub",
+      "Texas Toast",
+      "Pickles",
+      "Onions"
+    ],
+    "allergens": [
+      "Gluten"
+    ],
+    "tags": [
+      "Gluten-Free Available",
+      "Popular"
+    ]
+  },
+  "smoked-turkey-sandwich": {
+    "title": "Smoked Turkey Sandwich",
+    "name": "Smoked Turkey Sandwich",
+    "category": "BBQ SANDWICHES",
+    "price": 13.99,
+    "description": "Delicately smoked turkey breast served on a brioche bun with shoestring fries.",
+    "longDescription": "Savor the exquisite taste of our smoked turkey breast—delicately smoked to perfection, offering a tender and flavorful experience.",
+    "image": "https://picsum.photos/400/300?random=5",
+    "customizations": {
+      "sizes": [
+        {
+          "name": "Regular",
+          "price": 0
+        },
+        {
+          "name": "Large",
+          "price": 2
+        }
+      ],
+      "sauces": [
+        {
+          "name": "Original BBQ",
+          "price": 0,
+          "description": "Our Original House BBQ Sauce is a timeless classic, offering a rich and savory flavor with just the right touch of tang."
+        },
+        {
+          "name": "Sweet & Spicy",
+          "price": 0,
+          "description": "Our Sweet & Spicy House BBQ Sauce offers the perfect balance of rich sweetness and a fiery kick."
+        },
+        {
+          "name": "Peach Bourbon",
+          "price": 0,
+          "description": "Our Peach Bourbon BBQ Sauce offers a unique blend of sweet, juicy peaches and the warm, smoky notes of bourbon."
+        },
+        {
+          "name": "Carolina Gold",
+          "price": 0,
+          "description": "Our Carolina Gold Sauce is a tangy and zesty twist on a Southern classic with a distinctive mustard bite."
+        }
+      ],
+      "sides": [
+        {
+          "name": "Shoestring Fries (included)",
+          "price": 0
+        },
+        {
+          "name": "Mac & Cheese",
+          "price": 1,
+          "description": "Indulge in creamy macaroni infused with smoky flavors, a comforting classic that's irresistibly cheesy."
+        },
+        {
+          "name": "Baked Beans",
+          "price": 1,
+          "description": "Sink your teeth into our BBQ Baked Beans, slow-cooked to perfection with a tangy sauce and savory chunks of bacon."
+        },
+        {
+          "name": "Collard Greens",
+          "price": 1,
+          "description": "Experience the bold flavors of our Collard Greens, simmered to perfection with onions, garlic, and a hint of smoky goodness."
+        },
+        {
+          "name": "Cole Slaw",
+          "price": 1,
+          "description": "Savor the crisp freshness of our Coleslaw, a perfect balance of crunchy cabbage and creamy dressing."
+        },
+        {
+          "name": "Green Beans",
+          "price": 1,
+          "description": "Our Southern-style green beans, simmered to perfection with onions and spices, bring the warmth of home-cooked goodness to your plate."
+        },
+        {
+          "name": "Candied Yams",
+          "price": 1,
+          "description": "Savor the sweetness of our Candied Yams, tenderly baked with a caramelized glaze and warm spices."
+        },
+        {
+          "name": "Black Eyed Peas",
+          "price": 1,
+          "description": "Delight in the hearty goodness of our Black-Eyed Peas, slow-simmered with aromatic spices for a rich, comforting flavor."
+        },
+        {
+          "name": "Potato Salad",
+          "price": 1,
+          "description": "Relish the tangy crunch of our Potato Salad, a harmonious blend of tender potatoes, crisp vegetables, and zesty dressing."
+        },
+        {
+          "name": "Fire Roasted Corn",
+          "price": 1,
+          "description": "Sweet corn roasted over open flames for that perfect smoky flavor."
+        },
+        {
+          "name": "Texas Toast",
+          "price": 1,
+          "description": "Thick-cut bread toasted to golden perfection with garlic butter."
+        }
+      ]
+    },
+    "ingredients": [
+      "Turkey Breast",
+      "House Rub",
+      "Brioche Bun",
+      "Lettuce",
+      "Tomato"
+    ],
+    "allergens": [
+      "Gluten"
+    ]
+  },
+  "slider-trio": {
+    "title": "Slider Trio",
+    "name": "Slider Trio",
+    "category": "BBQ SANDWICHES",
+    "price": 15.99,
+    "description": "Three sliders: Pulled Pork, Chopped Brisket, and Pulled Chicken served with shoestring fries.",
+    "longDescription": "Can't decide? Try all three! Our popular trio featuring mini versions of our signature sandwiches.",
+    "image": "https://picsum.photos/400/300?random=8",
+    "popular": true,
+    "customizations": {
+      "sauces": [
+        {
+          "name": "Original BBQ",
+          "price": 0,
+          "description": "Our Original House BBQ Sauce is a timeless classic, offering a rich and savory flavor with just the right touch of tang."
+        },
+        {
+          "name": "Sweet & Spicy",
+          "price": 0,
+          "description": "Our Sweet & Spicy House BBQ Sauce offers the perfect balance of rich sweetness and a fiery kick."
+        },
+        {
+          "name": "Peach Bourbon",
+          "price": 0,
+          "description": "Our Peach Bourbon BBQ Sauce offers a unique blend of sweet, juicy peaches and the warm, smoky notes of bourbon."
+        },
+        {
+          "name": "Carolina Gold",
+          "price": 0,
+          "description": "Our Carolina Gold Sauce is a tangy and zesty twist on a Southern classic with a distinctive mustard bite."
+        }
+      ],
+      "sides": [
+        {
+          "name": "Shoestring Fries (included)",
+          "price": 0
+        },
+        {
+          "name": "Mac & Cheese",
+          "price": 1,
+          "description": "Indulge in creamy macaroni infused with smoky flavors, a comforting classic that's irresistibly cheesy."
+        },
+        {
+          "name": "Baked Beans",
+          "price": 1,
+          "description": "Sink your teeth into our BBQ Baked Beans, slow-cooked to perfection with a tangy sauce and savory chunks of bacon."
+        },
+        {
+          "name": "Collard Greens",
+          "price": 1,
+          "description": "Experience the bold flavors of our Collard Greens, simmered to perfection with onions, garlic, and a hint of smoky goodness."
+        },
+        {
+          "name": "Cole Slaw",
+          "price": 1,
+          "description": "Savor the crisp freshness of our Coleslaw, a perfect balance of crunchy cabbage and creamy dressing."
+        },
+        {
+          "name": "Green Beans",
+          "price": 1,
+          "description": "Our Southern-style green beans, simmered to perfection with onions and spices, bring the warmth of home-cooked goodness to your plate."
+        },
+        {
+          "name": "Candied Yams",
+          "price": 1,
+          "description": "Savor the sweetness of our Candied Yams, tenderly baked with a caramelized glaze and warm spices."
+        },
+        {
+          "name": "Black Eyed Peas",
+          "price": 1,
+          "description": "Delight in the hearty goodness of our Black-Eyed Peas, slow-simmered with aromatic spices for a rich, comforting flavor."
+        },
+        {
+          "name": "Potato Salad",
+          "price": 1,
+          "description": "Relish the tangy crunch of our Potato Salad, a harmonious blend of tender potatoes, crisp vegetables, and zesty dressing."
+        },
+        {
+          "name": "Fire Roasted Corn",
+          "price": 1,
+          "description": "Sweet corn roasted over open flames for that perfect smoky flavor."
+        },
+        {
+          "name": "Texas Toast",
+          "price": 1,
+          "description": "Thick-cut bread toasted to golden perfection with garlic butter."
+        }
+      ]
+    },
+    "ingredients": [
+      "Pulled Pork",
+      "Chopped Brisket",
+      "Pulled Chicken",
+      "Slider Buns"
+    ],
+    "allergens": [
+      "Gluten"
+    ]
+  },
+  "sweet-potato-pie": {
+    "title": "Sweet Potato Pie",
+    "name": "Sweet Potato Pie",
+    "category": "DESSERTS",
+    "price": 4,
+    "description": "Indulge in a slice of our Sweet Potato Pie, a heavenly blend of velvety sweet potatoes, warm spices, and a flaky crust.",
+    "longDescription": "Each slice offers a taste of Southern tradition and homemade goodness, perfect for satisfying your sweet tooth.",
+    "image": "https://picsum.photos/400/300?random=43",
+    "ingredients": [
+      "Sweet Potatoes",
+      "Eggs",
+      "Milk",
+      "Spices",
+      "Pie Crust"
+    ],
+    "allergens": [
+      "Gluten",
+      "Dairy",
+      "Eggs"
+    ]
+  },
+  "banana-pudding": {
+    "title": "Banana Pudding",
+    "name": "Banana Pudding",
+    "category": "DESSERTS",
+    "price": 4,
+    "description": "Dive into a spoonful of our Banana Pudding, a heavenly blend of creamy custard, ripe bananas, and luscious vanilla wafers.",
+    "longDescription": "Each serving is a taste of Southern comfort, guaranteed to transport you to dessert bliss with every bite.",
+    "image": "https://picsum.photos/400/300?random=44",
+    "popular": true,
+    "ingredients": [
+      "Bananas",
+      "Vanilla Wafers",
+      "Pudding",
+      "Whipped Cream"
+    ],
+    "allergens": [
+      "Gluten",
+      "Dairy",
+      "Eggs"
+    ]
+  },
+  "peach-cobbler": {
+    "title": "Peach Cobbler",
+    "name": "Peach Cobbler",
+    "category": "DESSERTS",
+    "price": 4.5,
+    "description": "Indulge in a serving of our Peach Cobbler, brimming with juicy peaches nestled beneath a golden-brown crust.",
+    "longDescription": "Each spoonful is a taste of summertime sweetness, a comforting treat that's perfect for any occasion.",
+    "image": "https://picsum.photos/400/300?random=43",
+    "ingredients": [
+      "Fresh Peaches",
+      "Cobbler Crust",
+      "Cinnamon",
+      "Sugar"
+    ],
+    "allergens": [
+      "Gluten",
+      "Dairy"
+    ]
+  },
+  "mac-cheese": {
+    "title": "Mac & Cheese",
+    "name": "Mac & Cheese",
+    "category": "SIDEKICKS",
+    "price": 3.5,
+    "description": "Indulge in creamy macaroni infused with smoky flavors, a comforting classic that's irresistibly cheesy.",
+    "longDescription": "Indulge in creamy macaroni infused with smoky flavors, a comforting classic that's irresistibly cheesy.",
+    "image": "https://picsum.photos/400/300?random=14",
+    "customizations": {
+      "sizes": [
+        {
+          "name": "6oz",
+          "price": 0
+        },
+        {
+          "name": "12oz",
+          "price": 2
+        },
+        {
+          "name": "Family Size",
+          "price": 8
+        }
+      ]
+    }
+  },
+  "baked-beans": {
+    "title": "Baked Beans",
+    "name": "Baked Beans",
+    "category": "SIDEKICKS",
+    "price": 3.5,
+    "description": "Sink your teeth into our BBQ Baked Beans, slow-cooked to perfection with a tangy sauce and savory chunks of bacon.",
+    "longDescription": "Sink your teeth into our BBQ Baked Beans, slow-cooked to perfection with a tangy sauce and savory chunks of bacon.",
+    "image": "https://picsum.photos/400/300?random=20",
+    "customizations": {
+      "sizes": [
+        {
+          "name": "6oz",
+          "price": 0
+        },
+        {
+          "name": "12oz",
+          "price": 2
+        },
+        {
+          "name": "Family Size",
+          "price": 8
+        }
+      ]
+    }
+  },
+  "collard-greens": {
+    "title": "Collard Greens",
+    "name": "Collard Greens",
+    "category": "SIDEKICKS",
+    "price": 3.5,
+    "description": "Experience the bold flavors of our Collard Greens, simmered to perfection with onions, garlic, and a hint of smoky goodness.",
+    "longDescription": "Experience the bold flavors of our Collard Greens, simmered to perfection with onions, garlic, and a hint of smoky goodness.",
+    "image": "https://picsum.photos/400/300?random=13",
+    "customizations": {
+      "sizes": [
+        {
+          "name": "6oz",
+          "price": 0
+        },
+        {
+          "name": "12oz",
+          "price": 2
+        },
+        {
+          "name": "Family Size",
+          "price": 8
+        }
+      ]
+    }
+  },
+  "cole-slaw": {
+    "title": "Cole Slaw",
+    "name": "Cole Slaw",
+    "category": "SIDEKICKS",
+    "price": 3.5,
+    "description": "Savor the crisp freshness of our Coleslaw, a perfect balance of crunchy cabbage and creamy dressing.",
+    "longDescription": "Savor the crisp freshness of our Coleslaw, a perfect balance of crunchy cabbage and creamy dressing.",
+    "image": "https://picsum.photos/400/300?random=20",
+    "customizations": {
+      "sizes": [
+        {
+          "name": "6oz",
+          "price": 0
+        },
+        {
+          "name": "12oz",
+          "price": 2
+        },
+        {
+          "name": "Family Size",
+          "price": 8
+        }
+      ]
+    }
+  },
+  "green-beans": {
+    "title": "Green Beans",
+    "name": "Green Beans",
+    "category": "SIDEKICKS",
+    "price": 3.5,
+    "description": "Our Southern-style green beans, simmered to perfection with onions and spices, bring the warmth of home-cooked goodness to your plate.",
+    "longDescription": "Our Southern-style green beans, simmered to perfection with onions and spices, bring the warmth of home-cooked goodness to your plate.",
+    "image": "https://picsum.photos/400/300?random=15",
+    "customizations": {
+      "sizes": [
+        {
+          "name": "6oz",
+          "price": 0
+        },
+        {
+          "name": "12oz",
+          "price": 2
+        },
+        {
+          "name": "Family Size",
+          "price": 8
+        }
+      ]
+    }
+  },
+  "shoestring-fries": {
+    "title": "Shoestring Fries",
+    "name": "Shoestring Fries",
+    "category": "SIDEKICKS",
+    "price": 3.5,
+    "description": "Crispy golden fries cut thin and seasoned to perfection.",
+    "longDescription": "Crispy golden fries cut thin and seasoned to perfection.",
+    "image": "https://picsum.photos/400/300?random=11",
+    "customizations": {
+      "sizes": [
+        {
+          "name": "6oz",
+          "price": 0
+        },
+        {
+          "name": "12oz",
+          "price": 2
+        },
+        {
+          "name": "Family Size",
+          "price": 8
+        }
+      ]
+    }
+  },
+  "candied-yams": {
+    "title": "Candied Yams",
+    "name": "Candied Yams",
+    "category": "SIDEKICKS",
+    "price": 3.5,
+    "description": "Savor the sweetness of our Candied Yams, tenderly baked with a caramelized glaze and warm spices.",
+    "longDescription": "Savor the sweetness of our Candied Yams, tenderly baked with a caramelized glaze and warm spices.",
+    "image": "https://picsum.photos/400/300?random=15",
+    "customizations": {
+      "sizes": [
+        {
+          "name": "6oz",
+          "price": 0
+        },
+        {
+          "name": "12oz",
+          "price": 2
+        },
+        {
+          "name": "Family Size",
+          "price": 8
+        }
+      ]
+    }
+  },
+  "black-eyed-peas": {
+    "title": "Black Eyed Peas",
+    "name": "Black Eyed Peas",
+    "category": "SIDEKICKS",
+    "price": 3.5,
+    "description": "Delight in the hearty goodness of our Black-Eyed Peas, slow-simmered with aromatic spices for a rich, comforting flavor.",
+    "longDescription": "Delight in the hearty goodness of our Black-Eyed Peas, slow-simmered with aromatic spices for a rich, comforting flavor.",
+    "image": "https://picsum.photos/400/300?random=14",
+    "customizations": {
+      "sizes": [
+        {
+          "name": "6oz",
+          "price": 0
+        },
+        {
+          "name": "12oz",
+          "price": 2
+        },
+        {
+          "name": "Family Size",
+          "price": 8
+        }
+      ]
+    }
+  },
+  "potato-salad": {
+    "title": "Potato Salad",
+    "name": "Potato Salad",
+    "category": "SIDEKICKS",
+    "price": 3.5,
+    "description": "Relish the tangy crunch of our Potato Salad, a harmonious blend of tender potatoes, crisp vegetables, and zesty dressing.",
+    "longDescription": "Relish the tangy crunch of our Potato Salad, a harmonious blend of tender potatoes, crisp vegetables, and zesty dressing.",
+    "image": "https://picsum.photos/400/300?random=17",
+    "customizations": {
+      "sizes": [
+        {
+          "name": "6oz",
+          "price": 0
+        },
+        {
+          "name": "12oz",
+          "price": 2
+        },
+        {
+          "name": "Family Size",
+          "price": 8
+        }
+      ]
+    }
+  },
+  "fire-roasted-corn": {
+    "title": "Fire Roasted Corn",
+    "name": "Fire Roasted Corn",
+    "category": "SIDEKICKS",
+    "price": 3.5,
+    "description": "Sweet corn roasted over open flames for that perfect smoky flavor.",
+    "longDescription": "Sweet corn roasted over open flames for that perfect smoky flavor.",
+    "image": "https://picsum.photos/400/300?random=11",
+    "customizations": {
+      "sizes": [
+        {
+          "name": "6oz",
+          "price": 0
+        },
+        {
+          "name": "12oz",
+          "price": 2
+        },
+        {
+          "name": "Family Size",
+          "price": 8
+        }
+      ]
+    }
+  },
+  "texas-toast": {
+    "title": "Texas Toast",
+    "name": "Texas Toast",
+    "category": "SIDEKICKS",
+    "price": 2,
+    "description": "Thick-cut bread toasted to golden perfection with garlic butter.",
+    "longDescription": "Thick-cut bread toasted to golden perfection with garlic butter.",
+    "image": "https://picsum.photos/400/300?random=12",
+    "customizations": {
+      "sizes": [
+        {
+          "name": "6oz",
+          "price": 0
+        },
+        {
+          "name": "12oz",
+          "price": 2
+        },
+        {
+          "name": "Family Size",
+          "price": 8
+        }
+      ]
+    }
+  },
+  "sweet-tea": {
+    "title": "Sweet Tea",
+    "name": "Sweet Tea",
+    "category": "BEVERAGES",
+    "price": 2.5,
+    "description": "Quench your thirst with our refreshing Sweet Tea, brewed to perfection and kissed with just the right amount of sweetness.",
+    "longDescription": "Quench your thirst with our refreshing Sweet Tea, brewed to perfection and kissed with just the right amount of sweetness.",
+    "image": "https://picsum.photos/400/300?random=36",
+    "customizations": {
+      "sizes": [
+        {
+          "name": "Regular",
+          "price": 0
+        },
+        {
+          "name": "Large",
+          "price": 1
+        }
+      ]
+    }
+  },
+  "lemonade": {
+    "title": "Lemonade",
+    "name": "Lemonade",
+    "category": "BEVERAGES",
+    "price": 2.5,
+    "description": "Sip on the sunshine with our Southern-Style Lemonade, a tangy and refreshing concoction perfect for beating the heat.",
+    "longDescription": "Sip on the sunshine with our Southern-Style Lemonade, a tangy and refreshing concoction perfect for beating the heat.",
+    "image": "https://picsum.photos/400/300?random=39",
+    "customizations": {
+      "sizes": [
+        {
+          "name": "Regular",
+          "price": 0
+        },
+        {
+          "name": "Large",
+          "price": 1
+        }
+      ]
+    }
+  },
+  "cola": {
+    "title": "Cola",
+    "name": "Cola",
+    "category": "BEVERAGES",
+    "price": 2,
+    "description": "Classic cola soft drink.",
+    "longDescription": "Classic cola soft drink.",
+    "image": "https://picsum.photos/400/300?random=33",
+    "customizations": {
+      "sizes": [
+        {
+          "name": "Regular",
+          "price": 0
+        },
+        {
+          "name": "Large",
+          "price": 1
+        }
+      ]
+    }
+  },
+  "sprite": {
+    "title": "Sprite",
+    "name": "Sprite",
+    "category": "BEVERAGES",
+    "price": 2,
+    "description": "Refreshing lemon-lime soda.",
+    "longDescription": "Refreshing lemon-lime soda.",
+    "image": "https://picsum.photos/400/300?random=40",
+    "customizations": {
+      "sizes": [
+        {
+          "name": "Regular",
+          "price": 0
+        },
+        {
+          "name": "Large",
+          "price": 1
+        }
+      ]
+    }
+  },
+  "dr-pepper": {
+    "title": "Dr. Pepper",
+    "name": "Dr. Pepper",
+    "category": "BEVERAGES",
+    "price": 2,
+    "description": "The unique taste of Dr. Pepper.",
+    "longDescription": "The unique taste of Dr. Pepper.",
+    "image": "https://picsum.photos/400/300?random=34",
+    "customizations": {
+      "sizes": [
+        {
+          "name": "Regular",
+          "price": 0
+        },
+        {
+          "name": "Large",
+          "price": 1
+        }
+      ]
+    }
+  },
+  "root-beer": {
+    "title": "Root Beer",
+    "name": "Root Beer",
+    "category": "BEVERAGES",
+    "price": 2,
+    "description": "Classic root beer with a smooth vanilla finish.",
+    "longDescription": "Classic root beer with a smooth vanilla finish.",
+    "image": "https://picsum.photos/400/300?random=39",
+    "customizations": {
+      "sizes": [
+        {
+          "name": "Regular",
+          "price": 0
+        },
+        {
+          "name": "Large",
+          "price": 1
+        }
+      ]
+    }
+  },
+  "original-bbq": {
+    "title": "Original BBQ",
+    "name": "Original BBQ",
+    "category": "SAUCES & RUBS",
+    "price": 8,
+    "description": "Our Original House BBQ Sauce is a timeless classic, offering a rich and savory flavor with just the right touch of tang.",
+    "longDescription": "Our Original House BBQ Sauce is a timeless classic, offering a rich and savory flavor with just the right touch of tang.",
+    "image": "https://picsum.photos/400/300?random=25",
+    "customizations": {
+      "sizes": [
+        {
+          "name": "16oz Bottle",
+          "price": 0
+        },
+        {
+          "name": "32oz Bottle",
+          "price": 4
+        }
+      ]
+    }
+  },
+  "sweet-spicy": {
+    "title": "Sweet & Spicy",
+    "name": "Sweet & Spicy",
+    "category": "SAUCES & RUBS",
+    "price": 8,
+    "description": "Our Sweet & Spicy House BBQ Sauce offers the perfect balance of rich sweetness and a fiery kick.",
+    "longDescription": "Our Sweet & Spicy House BBQ Sauce offers the perfect balance of rich sweetness and a fiery kick.",
+    "image": "https://picsum.photos/400/300?random=24",
+    "customizations": {
+      "sizes": [
+        {
+          "name": "16oz Bottle",
+          "price": 0
+        },
+        {
+          "name": "32oz Bottle",
+          "price": 4
+        }
+      ]
+    }
+  },
+  "peach-bourbon": {
+    "title": "Peach Bourbon",
+    "name": "Peach Bourbon",
+    "category": "SAUCES & RUBS",
+    "price": 8,
+    "description": "Our Peach Bourbon BBQ Sauce offers a unique blend of sweet, juicy peaches and the warm, smoky notes of bourbon.",
+    "longDescription": "Our Peach Bourbon BBQ Sauce offers a unique blend of sweet, juicy peaches and the warm, smoky notes of bourbon.",
+    "image": "https://picsum.photos/400/300?random=21",
+    "customizations": {
+      "sizes": [
+        {
+          "name": "16oz Bottle",
+          "price": 0
+        },
+        {
+          "name": "32oz Bottle",
+          "price": 4
+        }
+      ]
+    }
+  },
+  "carolina-gold": {
+    "title": "Carolina Gold",
+    "name": "Carolina Gold",
+    "category": "SAUCES & RUBS",
+    "price": 8,
+    "description": "Our Carolina Gold Sauce is a tangy and zesty twist on a Southern classic with a distinctive mustard bite.",
+    "longDescription": "Our Carolina Gold Sauce is a tangy and zesty twist on a Southern classic with a distinctive mustard bite.",
+    "image": "https://picsum.photos/400/300?random=28",
+    "customizations": {
+      "sizes": [
+        {
+          "name": "16oz Bottle",
+          "price": 0
+        },
+        {
+          "name": "32oz Bottle",
+          "price": 4
+        }
+      ]
+    }
+  }
+}
+
+=== COMPLETE FIREBASE DATA ===
+{
+  "categories": {
+    "bbq-sandwiches": {
+      "name": "BBQ SANDWICHES",
+      "slug": "bbq-sandwiches",
+      "description": "Authentic BBQ sandwiches served with shoestring fries and sauce",
+      "image": "https://picsum.photos/400/300?random=5"
+    },
+    "signature-bbq": {
+      "name": "SIGNATURE BBQ",
+      "slug": "signature-bbq",
+      "description": "Slow smoked meats cooked to perfection",
+      "image": "https://picsum.photos/400/300?random=58"
+    },
+    "pitmaster-picks": {
+      "name": "PITMASTER PICKS",
+      "slug": "pitmaster-picks",
+      "description": "Texas toast plates with choice of meats and sides",
+      "image": "https://picsum.photos/400/300?random=59"
+    },
+    "sidekicks": {
+      "name": "SIDEKICKS",
+      "slug": "sides",
+      "description": "Traditional Southern sides made from scratch",
+      "image": "https://picsum.photos/400/300?random=12"
+    },
+    "desserts": {
+      "name": "DESSERTS",
+      "slug": "desserts",
+      "description": "Homemade desserts to sweeten your meal",
+      "image": "https://picsum.photos/400/300?random=46"
+    },
+    "beverages": {
+      "name": "BEVERAGES",
+      "slug": "beverages",
+      "description": "Refreshing drinks to complement your meal",
+      "image": "https://picsum.photos/400/300?random=36"
+    },
+    "sauces-rubs": {
+      "name": "SAUCES & RUBS",
+      "slug": "sauces-rubs",
+      "description": "House-made sauces and rubs",
+      "image": "https://picsum.photos/400/300?random=26"
+    }
+  },
+  "menu": {
+    "pulled-pork-sandwich": {
+      "title": "Pulled Pork Sandwich",
+      "name": "Pulled Pork Sandwich",
+      "category": "BBQ SANDWICHES",
+      "price": 12.99,
+      "description": "Tender pulled pork slow-smoked to perfection, served on a brioche bun with shoestring fries.",
+      "longDescription": "Experience our mouthwatering Pulled Pork, slow-cooked to perfection and brimming with flavor. Served with our signature shoestring fries and your choice of sauce.",
+      "image": "https://picsum.photos/400/300?random=1",
+      "popular": true,
+      "customizations": {
+        "sizes": [
+          {
+            "name": "Regular",
+            "price": 0
+          },
+          {
+            "name": "Large",
+            "price": 2
+          }
+        ],
+        "sauces": [
+          {
+            "name": "Original BBQ",
+            "price": 0,
+            "description": "Our Original House BBQ Sauce is a timeless classic, offering a rich and savory flavor with just the right touch of tang."
+          },
+          {
+            "name": "Sweet & Spicy",
+            "price": 0,
+            "description": "Our Sweet & Spicy House BBQ Sauce offers the perfect balance of rich sweetness and a fiery kick."
+          },
+          {
+            "name": "Peach Bourbon",
+            "price": 0,
+            "description": "Our Peach Bourbon BBQ Sauce offers a unique blend of sweet, juicy peaches and the warm, smoky notes of bourbon."
+          },
+          {
+            "name": "Carolina Gold",
+            "price": 0,
+            "description": "Our Carolina Gold Sauce is a tangy and zesty twist on a Southern classic with a distinctive mustard bite."
+          }
+        ],
+        "sides": [
+          {
+            "name": "Shoestring Fries (included)",
+            "price": 0
+          },
+          {
+            "name": "Mac & Cheese",
+            "price": 1,
+            "description": "Indulge in creamy macaroni infused with smoky flavors, a comforting classic that's irresistibly cheesy."
+          },
+          {
+            "name": "Baked Beans",
+            "price": 1,
+            "description": "Sink your teeth into our BBQ Baked Beans, slow-cooked to perfection with a tangy sauce and savory chunks of bacon."
+          },
+          {
+            "name": "Collard Greens",
+            "price": 1,
+            "description": "Experience the bold flavors of our Collard Greens, simmered to perfection with onions, garlic, and a hint of smoky goodness."
+          },
+          {
+            "name": "Cole Slaw",
+            "price": 1,
+            "description": "Savor the crisp freshness of our Coleslaw, a perfect balance of crunchy cabbage and creamy dressing."
+          },
+          {
+            "name": "Green Beans",
+            "price": 1,
+            "description": "Our Southern-style green beans, simmered to perfection with onions and spices, bring the warmth of home-cooked goodness to your plate."
+          },
+          {
+            "name": "Candied Yams",
+            "price": 1,
+            "description": "Savor the sweetness of our Candied Yams, tenderly baked with a caramelized glaze and warm spices."
+          },
+          {
+            "name": "Black Eyed Peas",
+            "price": 1,
+            "description": "Delight in the hearty goodness of our Black-Eyed Peas, slow-simmered with aromatic spices for a rich, comforting flavor."
+          },
+          {
+            "name": "Potato Salad",
+            "price": 1,
+            "description": "Relish the tangy crunch of our Potato Salad, a harmonious blend of tender potatoes, crisp vegetables, and zesty dressing."
+          },
+          {
+            "name": "Fire Roasted Corn",
+            "price": 1,
+            "description": "Sweet corn roasted over open flames for that perfect smoky flavor."
+          },
+          {
+            "name": "Texas Toast",
+            "price": 1,
+            "description": "Thick-cut bread toasted to golden perfection with garlic butter."
+          }
+        ]
+      },
+      "ingredients": [
+        "Pork Shoulder",
+        "House Rub",
+        "Brioche Bun",
+        "Pickles",
+        "Onions"
+      ],
+      "allergens": [
+        "Gluten",
+        "Soy"
+      ]
+    },
+    "chopped-brisket-sandwich": {
+      "title": "Chopped Brisket Sandwich",
+      "name": "Chopped Brisket Sandwich",
+      "category": "BBQ SANDWICHES",
+      "price": 14.99,
+      "description": "12-hour smoked Angus brisket chopped and served on Texas toast with shoestring fries.",
+      "longDescription": "Our signature 12-hour smoked Angus brisket with perfect bark and juicy inside, chopped and piled high on Texas toast.",
+      "image": "https://picsum.photos/400/300?random=2",
+      "popular": true,
+      "customizations": {
+        "sizes": [
+          {
+            "name": "Regular",
+            "price": 0
+          },
+          {
+            "name": "Large",
+            "price": 2.5
+          }
+        ],
+        "sauces": [
+          {
+            "name": "Original BBQ",
+            "price": 0,
+            "description": "Our Original House BBQ Sauce is a timeless classic, offering a rich and savory flavor with just the right touch of tang."
+          },
+          {
+            "name": "Sweet & Spicy",
+            "price": 0,
+            "description": "Our Sweet & Spicy House BBQ Sauce offers the perfect balance of rich sweetness and a fiery kick."
+          },
+          {
+            "name": "Peach Bourbon",
+            "price": 0,
+            "description": "Our Peach Bourbon BBQ Sauce offers a unique blend of sweet, juicy peaches and the warm, smoky notes of bourbon."
+          },
+          {
+            "name": "Carolina Gold",
+            "price": 0,
+            "description": "Our Carolina Gold Sauce is a tangy and zesty twist on a Southern classic with a distinctive mustard bite."
+          }
+        ],
+        "sides": [
+          {
+            "name": "Shoestring Fries (included)",
+            "price": 0
+          },
+          {
+            "name": "Mac & Cheese",
+            "price": 1,
+            "description": "Indulge in creamy macaroni infused with smoky flavors, a comforting classic that's irresistibly cheesy."
+          },
+          {
+            "name": "Baked Beans",
+            "price": 1,
+            "description": "Sink your teeth into our BBQ Baked Beans, slow-cooked to perfection with a tangy sauce and savory chunks of bacon."
+          },
+          {
+            "name": "Collard Greens",
+            "price": 1,
+            "description": "Experience the bold flavors of our Collard Greens, simmered to perfection with onions, garlic, and a hint of smoky goodness."
+          },
+          {
+            "name": "Cole Slaw",
+            "price": 1,
+            "description": "Savor the crisp freshness of our Coleslaw, a perfect balance of crunchy cabbage and creamy dressing."
+          },
+          {
+            "name": "Green Beans",
+            "price": 1,
+            "description": "Our Southern-style green beans, simmered to perfection with onions and spices, bring the warmth of home-cooked goodness to your plate."
+          },
+          {
+            "name": "Candied Yams",
+            "price": 1,
+            "description": "Savor the sweetness of our Candied Yams, tenderly baked with a caramelized glaze and warm spices."
+          },
+          {
+            "name": "Black Eyed Peas",
+            "price": 1,
+            "description": "Delight in the hearty goodness of our Black-Eyed Peas, slow-simmered with aromatic spices for a rich, comforting flavor."
+          },
+          {
+            "name": "Potato Salad",
+            "price": 1,
+            "description": "Relish the tangy crunch of our Potato Salad, a harmonious blend of tender potatoes, crisp vegetables, and zesty dressing."
+          },
+          {
+            "name": "Fire Roasted Corn",
+            "price": 1,
+            "description": "Sweet corn roasted over open flames for that perfect smoky flavor."
+          },
+          {
+            "name": "Texas Toast",
+            "price": 1,
+            "description": "Thick-cut bread toasted to golden perfection with garlic butter."
+          }
+        ]
+      },
+      "ingredients": [
+        "Angus Brisket",
+        "House Rub",
+        "Texas Toast",
+        "Pickles",
+        "Onions"
+      ],
+      "allergens": [
+        "Gluten"
+      ],
+      "tags": [
+        "Gluten-Free Available",
+        "Popular"
+      ]
+    },
+    "smoked-turkey-sandwich": {
+      "title": "Smoked Turkey Sandwich",
+      "name": "Smoked Turkey Sandwich",
+      "category": "BBQ SANDWICHES",
+      "price": 13.99,
+      "description": "Delicately smoked turkey breast served on a brioche bun with shoestring fries.",
+      "longDescription": "Savor the exquisite taste of our smoked turkey breast—delicately smoked to perfection, offering a tender and flavorful experience.",
+      "image": "https://picsum.photos/400/300?random=5",
+      "customizations": {
+        "sizes": [
+          {
+            "name": "Regular",
+            "price": 0
+          },
+          {
+            "name": "Large",
+            "price": 2
+          }
+        ],
+        "sauces": [
+          {
+            "name": "Original BBQ",
+            "price": 0,
+            "description": "Our Original House BBQ Sauce is a timeless classic, offering a rich and savory flavor with just the right touch of tang."
+          },
+          {
+            "name": "Sweet & Spicy",
+            "price": 0,
+            "description": "Our Sweet & Spicy House BBQ Sauce offers the perfect balance of rich sweetness and a fiery kick."
+          },
+          {
+            "name": "Peach Bourbon",
+            "price": 0,
+            "description": "Our Peach Bourbon BBQ Sauce offers a unique blend of sweet, juicy peaches and the warm, smoky notes of bourbon."
+          },
+          {
+            "name": "Carolina Gold",
+            "price": 0,
+            "description": "Our Carolina Gold Sauce is a tangy and zesty twist on a Southern classic with a distinctive mustard bite."
+          }
+        ],
+        "sides": [
+          {
+            "name": "Shoestring Fries (included)",
+            "price": 0
+          },
+          {
+            "name": "Mac & Cheese",
+            "price": 1,
+            "description": "Indulge in creamy macaroni infused with smoky flavors, a comforting classic that's irresistibly cheesy."
+          },
+          {
+            "name": "Baked Beans",
+            "price": 1,
+            "description": "Sink your teeth into our BBQ Baked Beans, slow-cooked to perfection with a tangy sauce and savory chunks of bacon."
+          },
+          {
+            "name": "Collard Greens",
+            "price": 1,
+            "description": "Experience the bold flavors of our Collard Greens, simmered to perfection with onions, garlic, and a hint of smoky goodness."
+          },
+          {
+            "name": "Cole Slaw",
+            "price": 1,
+            "description": "Savor the crisp freshness of our Coleslaw, a perfect balance of crunchy cabbage and creamy dressing."
+          },
+          {
+            "name": "Green Beans",
+            "price": 1,
+            "description": "Our Southern-style green beans, simmered to perfection with onions and spices, bring the warmth of home-cooked goodness to your plate."
+          },
+          {
+            "name": "Candied Yams",
+            "price": 1,
+            "description": "Savor the sweetness of our Candied Yams, tenderly baked with a caramelized glaze and warm spices."
+          },
+          {
+            "name": "Black Eyed Peas",
+            "price": 1,
+            "description": "Delight in the hearty goodness of our Black-Eyed Peas, slow-simmered with aromatic spices for a rich, comforting flavor."
+          },
+          {
+            "name": "Potato Salad",
+            "price": 1,
+            "description": "Relish the tangy crunch of our Potato Salad, a harmonious blend of tender potatoes, crisp vegetables, and zesty dressing."
+          },
+          {
+            "name": "Fire Roasted Corn",
+            "price": 1,
+            "description": "Sweet corn roasted over open flames for that perfect smoky flavor."
+          },
+          {
+            "name": "Texas Toast",
+            "price": 1,
+            "description": "Thick-cut bread toasted to golden perfection with garlic butter."
+          }
+        ]
+      },
+      "ingredients": [
+        "Turkey Breast",
+        "House Rub",
+        "Brioche Bun",
+        "Lettuce",
+        "Tomato"
+      ],
+      "allergens": [
+        "Gluten"
+      ]
+    },
+    "slider-trio": {
+      "title": "Slider Trio",
+      "name": "Slider Trio",
+      "category": "BBQ SANDWICHES",
+      "price": 15.99,
+      "description": "Three sliders: Pulled Pork, Chopped Brisket, and Pulled Chicken served with shoestring fries.",
+      "longDescription": "Can't decide? Try all three! Our popular trio featuring mini versions of our signature sandwiches.",
+      "image": "https://picsum.photos/400/300?random=8",
+      "popular": true,
+      "customizations": {
+        "sauces": [
+          {
+            "name": "Original BBQ",
+            "price": 0,
+            "description": "Our Original House BBQ Sauce is a timeless classic, offering a rich and savory flavor with just the right touch of tang."
+          },
+          {
+            "name": "Sweet & Spicy",
+            "price": 0,
+            "description": "Our Sweet & Spicy House BBQ Sauce offers the perfect balance of rich sweetness and a fiery kick."
+          },
+          {
+            "name": "Peach Bourbon",
+            "price": 0,
+            "description": "Our Peach Bourbon BBQ Sauce offers a unique blend of sweet, juicy peaches and the warm, smoky notes of bourbon."
+          },
+          {
+            "name": "Carolina Gold",
+            "price": 0,
+            "description": "Our Carolina Gold Sauce is a tangy and zesty twist on a Southern classic with a distinctive mustard bite."
+          }
+        ],
+        "sides": [
+          {
+            "name": "Shoestring Fries (included)",
+            "price": 0
+          },
+          {
+            "name": "Mac & Cheese",
+            "price": 1,
+            "description": "Indulge in creamy macaroni infused with smoky flavors, a comforting classic that's irresistibly cheesy."
+          },
+          {
+            "name": "Baked Beans",
+            "price": 1,
+            "description": "Sink your teeth into our BBQ Baked Beans, slow-cooked to perfection with a tangy sauce and savory chunks of bacon."
+          },
+          {
+            "name": "Collard Greens",
+            "price": 1,
+            "description": "Experience the bold flavors of our Collard Greens, simmered to perfection with onions, garlic, and a hint of smoky goodness."
+          },
+          {
+            "name": "Cole Slaw",
+            "price": 1,
+            "description": "Savor the crisp freshness of our Coleslaw, a perfect balance of crunchy cabbage and creamy dressing."
+          },
+          {
+            "name": "Green Beans",
+            "price": 1,
+            "description": "Our Southern-style green beans, simmered to perfection with onions and spices, bring the warmth of home-cooked goodness to your plate."
+          },
+          {
+            "name": "Candied Yams",
+            "price": 1,
+            "description": "Savor the sweetness of our Candied Yams, tenderly baked with a caramelized glaze and warm spices."
+          },
+          {
+            "name": "Black Eyed Peas",
+            "price": 1,
+            "description": "Delight in the hearty goodness of our Black-Eyed Peas, slow-simmered with aromatic spices for a rich, comforting flavor."
+          },
+          {
+            "name": "Potato Salad",
+            "price": 1,
+            "description": "Relish the tangy crunch of our Potato Salad, a harmonious blend of tender potatoes, crisp vegetables, and zesty dressing."
+          },
+          {
+            "name": "Fire Roasted Corn",
+            "price": 1,
+            "description": "Sweet corn roasted over open flames for that perfect smoky flavor."
+          },
+          {
+            "name": "Texas Toast",
+            "price": 1,
+            "description": "Thick-cut bread toasted to golden perfection with garlic butter."
+          }
+        ]
+      },
+      "ingredients": [
+        "Pulled Pork",
+        "Chopped Brisket",
+        "Pulled Chicken",
+        "Slider Buns"
+      ],
+      "allergens": [
+        "Gluten"
+      ]
+    },
+    "sweet-potato-pie": {
+      "title": "Sweet Potato Pie",
+      "name": "Sweet Potato Pie",
+      "category": "DESSERTS",
+      "price": 4,
+      "description": "Indulge in a slice of our Sweet Potato Pie, a heavenly blend of velvety sweet potatoes, warm spices, and a flaky crust.",
+      "longDescription": "Each slice offers a taste of Southern tradition and homemade goodness, perfect for satisfying your sweet tooth.",
+      "image": "https://picsum.photos/400/300?random=43",
+      "ingredients": [
+        "Sweet Potatoes",
+        "Eggs",
+        "Milk",
+        "Spices",
+        "Pie Crust"
+      ],
+      "allergens": [
+        "Gluten",
+        "Dairy",
+        "Eggs"
+      ]
+    },
+    "banana-pudding": {
+      "title": "Banana Pudding",
+      "name": "Banana Pudding",
+      "category": "DESSERTS",
+      "price": 4,
+      "description": "Dive into a spoonful of our Banana Pudding, a heavenly blend of creamy custard, ripe bananas, and luscious vanilla wafers.",
+      "longDescription": "Each serving is a taste of Southern comfort, guaranteed to transport you to dessert bliss with every bite.",
+      "image": "https://picsum.photos/400/300?random=44",
+      "popular": true,
+      "ingredients": [
+        "Bananas",
+        "Vanilla Wafers",
+        "Pudding",
+        "Whipped Cream"
+      ],
+      "allergens": [
+        "Gluten",
+        "Dairy",
+        "Eggs"
+      ]
+    },
+    "peach-cobbler": {
+      "title": "Peach Cobbler",
+      "name": "Peach Cobbler",
+      "category": "DESSERTS",
+      "price": 4.5,
+      "description": "Indulge in a serving of our Peach Cobbler, brimming with juicy peaches nestled beneath a golden-brown crust.",
+      "longDescription": "Each spoonful is a taste of summertime sweetness, a comforting treat that's perfect for any occasion.",
+      "image": "https://picsum.photos/400/300?random=43",
+      "ingredients": [
+        "Fresh Peaches",
+        "Cobbler Crust",
+        "Cinnamon",
+        "Sugar"
+      ],
+      "allergens": [
+        "Gluten",
+        "Dairy"
+      ]
+    },
+    "mac-cheese": {
+      "title": "Mac & Cheese",
+      "name": "Mac & Cheese",
+      "category": "SIDEKICKS",
+      "price": 3.5,
+      "description": "Indulge in creamy macaroni infused with smoky flavors, a comforting classic that's irresistibly cheesy.",
+      "longDescription": "Indulge in creamy macaroni infused with smoky flavors, a comforting classic that's irresistibly cheesy.",
+      "image": "https://picsum.photos/400/300?random=14",
+      "customizations": {
+        "sizes": [
+          {
+            "name": "6oz",
+            "price": 0
+          },
+          {
+            "name": "12oz",
+            "price": 2
+          },
+          {
+            "name": "Family Size",
+            "price": 8
+          }
+        ]
+      }
+    },
+    "baked-beans": {
+      "title": "Baked Beans",
+      "name": "Baked Beans",
+      "category": "SIDEKICKS",
+      "price": 3.5,
+      "description": "Sink your teeth into our BBQ Baked Beans, slow-cooked to perfection with a tangy sauce and savory chunks of bacon.",
+      "longDescription": "Sink your teeth into our BBQ Baked Beans, slow-cooked to perfection with a tangy sauce and savory chunks of bacon.",
+      "image": "https://picsum.photos/400/300?random=20",
+      "customizations": {
+        "sizes": [
+          {
+            "name": "6oz",
+            "price": 0
+          },
+          {
+            "name": "12oz",
+            "price": 2
+          },
+          {
+            "name": "Family Size",
+            "price": 8
+          }
+        ]
+      }
+    },
+    "collard-greens": {
+      "title": "Collard Greens",
+      "name": "Collard Greens",
+      "category": "SIDEKICKS",
+      "price": 3.5,
+      "description": "Experience the bold flavors of our Collard Greens, simmered to perfection with onions, garlic, and a hint of smoky goodness.",
+      "longDescription": "Experience the bold flavors of our Collard Greens, simmered to perfection with onions, garlic, and a hint of smoky goodness.",
+      "image": "https://picsum.photos/400/300?random=13",
+      "customizations": {
+        "sizes": [
+          {
+            "name": "6oz",
+            "price": 0
+          },
+          {
+            "name": "12oz",
+            "price": 2
+          },
+          {
+            "name": "Family Size",
+            "price": 8
+          }
+        ]
+      }
+    },
+    "cole-slaw": {
+      "title": "Cole Slaw",
+      "name": "Cole Slaw",
+      "category": "SIDEKICKS",
+      "price": 3.5,
+      "description": "Savor the crisp freshness of our Coleslaw, a perfect balance of crunchy cabbage and creamy dressing.",
+      "longDescription": "Savor the crisp freshness of our Coleslaw, a perfect balance of crunchy cabbage and creamy dressing.",
+      "image": "https://picsum.photos/400/300?random=20",
+      "customizations": {
+        "sizes": [
+          {
+            "name": "6oz",
+            "price": 0
+          },
+          {
+            "name": "12oz",
+            "price": 2
+          },
+          {
+            "name": "Family Size",
+            "price": 8
+          }
+        ]
+      }
+    },
+    "green-beans": {
+      "title": "Green Beans",
+      "name": "Green Beans",
+      "category": "SIDEKICKS",
+      "price": 3.5,
+      "description": "Our Southern-style green beans, simmered to perfection with onions and spices, bring the warmth of home-cooked goodness to your plate.",
+      "longDescription": "Our Southern-style green beans, simmered to perfection with onions and spices, bring the warmth of home-cooked goodness to your plate.",
+      "image": "https://picsum.photos/400/300?random=15",
+      "customizations": {
+        "sizes": [
+          {
+            "name": "6oz",
+            "price": 0
+          },
+          {
+            "name": "12oz",
+            "price": 2
+          },
+          {
+            "name": "Family Size",
+            "price": 8
+          }
+        ]
+      }
+    },
+    "shoestring-fries": {
+      "title": "Shoestring Fries",
+      "name": "Shoestring Fries",
+      "category": "SIDEKICKS",
+      "price": 3.5,
+      "description": "Crispy golden fries cut thin and seasoned to perfection.",
+      "longDescription": "Crispy golden fries cut thin and seasoned to perfection.",
+      "image": "https://picsum.photos/400/300?random=11",
+      "customizations": {
+        "sizes": [
+          {
+            "name": "6oz",
+            "price": 0
+          },
+          {
+            "name": "12oz",
+            "price": 2
+          },
+          {
+            "name": "Family Size",
+            "price": 8
+          }
+        ]
+      }
+    },
+    "candied-yams": {
+      "title": "Candied Yams",
+      "name": "Candied Yams",
+      "category": "SIDEKICKS",
+      "price": 3.5,
+      "description": "Savor the sweetness of our Candied Yams, tenderly baked with a caramelized glaze and warm spices.",
+      "longDescription": "Savor the sweetness of our Candied Yams, tenderly baked with a caramelized glaze and warm spices.",
+      "image": "https://picsum.photos/400/300?random=15",
+      "customizations": {
+        "sizes": [
+          {
+            "name": "6oz",
+            "price": 0
+          },
+          {
+            "name": "12oz",
+            "price": 2
+          },
+          {
+            "name": "Family Size",
+            "price": 8
+          }
+        ]
+      }
+    },
+    "black-eyed-peas": {
+      "title": "Black Eyed Peas",
+      "name": "Black Eyed Peas",
+      "category": "SIDEKICKS",
+      "price": 3.5,
+      "description": "Delight in the hearty goodness of our Black-Eyed Peas, slow-simmered with aromatic spices for a rich, comforting flavor.",
+      "longDescription": "Delight in the hearty goodness of our Black-Eyed Peas, slow-simmered with aromatic spices for a rich, comforting flavor.",
+      "image": "https://picsum.photos/400/300?random=14",
+      "customizations": {
+        "sizes": [
+          {
+            "name": "6oz",
+            "price": 0
+          },
+          {
+            "name": "12oz",
+            "price": 2
+          },
+          {
+            "name": "Family Size",
+            "price": 8
+          }
+        ]
+      }
+    },
+    "potato-salad": {
+      "title": "Potato Salad",
+      "name": "Potato Salad",
+      "category": "SIDEKICKS",
+      "price": 3.5,
+      "description": "Relish the tangy crunch of our Potato Salad, a harmonious blend of tender potatoes, crisp vegetables, and zesty dressing.",
+      "longDescription": "Relish the tangy crunch of our Potato Salad, a harmonious blend of tender potatoes, crisp vegetables, and zesty dressing.",
+      "image": "https://picsum.photos/400/300?random=17",
+      "customizations": {
+        "sizes": [
+          {
+            "name": "6oz",
+            "price": 0
+          },
+          {
+            "name": "12oz",
+            "price": 2
+          },
+          {
+            "name": "Family Size",
+            "price": 8
+          }
+        ]
+      }
+    },
+    "fire-roasted-corn": {
+      "title": "Fire Roasted Corn",
+      "name": "Fire Roasted Corn",
+      "category": "SIDEKICKS",
+      "price": 3.5,
+      "description": "Sweet corn roasted over open flames for that perfect smoky flavor.",
+      "longDescription": "Sweet corn roasted over open flames for that perfect smoky flavor.",
+      "image": "https://picsum.photos/400/300?random=11",
+      "customizations": {
+        "sizes": [
+          {
+            "name": "6oz",
+            "price": 0
+          },
+          {
+            "name": "12oz",
+            "price": 2
+          },
+          {
+            "name": "Family Size",
+            "price": 8
+          }
+        ]
+      }
+    },
+    "texas-toast": {
+      "title": "Texas Toast",
+      "name": "Texas Toast",
+      "category": "SIDEKICKS",
+      "price": 2,
+      "description": "Thick-cut bread toasted to golden perfection with garlic butter.",
+      "longDescription": "Thick-cut bread toasted to golden perfection with garlic butter.",
+      "image": "https://picsum.photos/400/300?random=12",
+      "customizations": {
+        "sizes": [
+          {
+            "name": "6oz",
+            "price": 0
+          },
+          {
+            "name": "12oz",
+            "price": 2
+          },
+          {
+            "name": "Family Size",
+            "price": 8
+          }
+        ]
+      }
+    },
+    "sweet-tea": {
+      "title": "Sweet Tea",
+      "name": "Sweet Tea",
+      "category": "BEVERAGES",
+      "price": 2.5,
+      "description": "Quench your thirst with our refreshing Sweet Tea, brewed to perfection and kissed with just the right amount of sweetness.",
+      "longDescription": "Quench your thirst with our refreshing Sweet Tea, brewed to perfection and kissed with just the right amount of sweetness.",
+      "image": "https://picsum.photos/400/300?random=36",
+      "customizations": {
+        "sizes": [
+          {
+            "name": "Regular",
+            "price": 0
+          },
+          {
+            "name": "Large",
+            "price": 1
+          }
+        ]
+      }
+    },
+    "lemonade": {
+      "title": "Lemonade",
+      "name": "Lemonade",
+      "category": "BEVERAGES",
+      "price": 2.5,
+      "description": "Sip on the sunshine with our Southern-Style Lemonade, a tangy and refreshing concoction perfect for beating the heat.",
+      "longDescription": "Sip on the sunshine with our Southern-Style Lemonade, a tangy and refreshing concoction perfect for beating the heat.",
+      "image": "https://picsum.photos/400/300?random=39",
+      "customizations": {
+        "sizes": [
+          {
+            "name": "Regular",
+            "price": 0
+          },
+          {
+            "name": "Large",
+            "price": 1
+          }
+        ]
+      }
+    },
+    "cola": {
+      "title": "Cola",
+      "name": "Cola",
+      "category": "BEVERAGES",
+      "price": 2,
+      "description": "Classic cola soft drink.",
+      "longDescription": "Classic cola soft drink.",
+      "image": "https://picsum.photos/400/300?random=33",
+      "customizations": {
+        "sizes": [
+          {
+            "name": "Regular",
+            "price": 0
+          },
+          {
+            "name": "Large",
+            "price": 1
+          }
+        ]
+      }
+    },
+    "sprite": {
+      "title": "Sprite",
+      "name": "Sprite",
+      "category": "BEVERAGES",
+      "price": 2,
+      "description": "Refreshing lemon-lime soda.",
+      "longDescription": "Refreshing lemon-lime soda.",
+      "image": "https://picsum.photos/400/300?random=40",
+      "customizations": {
+        "sizes": [
+          {
+            "name": "Regular",
+            "price": 0
+          },
+          {
+            "name": "Large",
+            "price": 1
+          }
+        ]
+      }
+    },
+    "dr-pepper": {
+      "title": "Dr. Pepper",
+      "name": "Dr. Pepper",
+      "category": "BEVERAGES",
+      "price": 2,
+      "description": "The unique taste of Dr. Pepper.",
+      "longDescription": "The unique taste of Dr. Pepper.",
+      "image": "https://picsum.photos/400/300?random=34",
+      "customizations": {
+        "sizes": [
+          {
+            "name": "Regular",
+            "price": 0
+          },
+          {
+            "name": "Large",
+            "price": 1
+          }
+        ]
+      }
+    },
+    "root-beer": {
+      "title": "Root Beer",
+      "name": "Root Beer",
+      "category": "BEVERAGES",
+      "price": 2,
+      "description": "Classic root beer with a smooth vanilla finish.",
+      "longDescription": "Classic root beer with a smooth vanilla finish.",
+      "image": "https://picsum.photos/400/300?random=39",
+      "customizations": {
+        "sizes": [
+          {
+            "name": "Regular",
+            "price": 0
+          },
+          {
+            "name": "Large",
+            "price": 1
+          }
+        ]
+      }
+    },
+    "original-bbq": {
+      "title": "Original BBQ",
+      "name": "Original BBQ",
+      "category": "SAUCES & RUBS",
+      "price": 8,
+      "description": "Our Original House BBQ Sauce is a timeless classic, offering a rich and savory flavor with just the right touch of tang.",
+      "longDescription": "Our Original House BBQ Sauce is a timeless classic, offering a rich and savory flavor with just the right touch of tang.",
+      "image": "https://picsum.photos/400/300?random=25",
+      "customizations": {
+        "sizes": [
+          {
+            "name": "16oz Bottle",
+            "price": 0
+          },
+          {
+            "name": "32oz Bottle",
+            "price": 4
+          }
+        ]
+      }
+    },
+    "sweet-spicy": {
+      "title": "Sweet & Spicy",
+      "name": "Sweet & Spicy",
+      "category": "SAUCES & RUBS",
+      "price": 8,
+      "description": "Our Sweet & Spicy House BBQ Sauce offers the perfect balance of rich sweetness and a fiery kick.",
+      "longDescription": "Our Sweet & Spicy House BBQ Sauce offers the perfect balance of rich sweetness and a fiery kick.",
+      "image": "https://picsum.photos/400/300?random=24",
+      "customizations": {
+        "sizes": [
+          {
+            "name": "16oz Bottle",
+            "price": 0
+          },
+          {
+            "name": "32oz Bottle",
+            "price": 4
+          }
+        ]
+      }
+    },
+    "peach-bourbon": {
+      "title": "Peach Bourbon",
+      "name": "Peach Bourbon",
+      "category": "SAUCES & RUBS",
+      "price": 8,
+      "description": "Our Peach Bourbon BBQ Sauce offers a unique blend of sweet, juicy peaches and the warm, smoky notes of bourbon.",
+      "longDescription": "Our Peach Bourbon BBQ Sauce offers a unique blend of sweet, juicy peaches and the warm, smoky notes of bourbon.",
+      "image": "https://picsum.photos/400/300?random=21",
+      "customizations": {
+        "sizes": [
+          {
+            "name": "16oz Bottle",
+            "price": 0
+          },
+          {
+            "name": "32oz Bottle",
+            "price": 4
+          }
+        ]
+      }
+    },
+    "carolina-gold": {
+      "title": "Carolina Gold",
+      "name": "Carolina Gold",
+      "category": "SAUCES & RUBS",
+      "price": 8,
+      "description": "Our Carolina Gold Sauce is a tangy and zesty twist on a Southern classic with a distinctive mustard bite.",
+      "longDescription": "Our Carolina Gold Sauce is a tangy and zesty twist on a Southern classic with a distinctive mustard bite.",
+      "image": "https://picsum.photos/400/300?random=28",
+      "customizations": {
+        "sizes": [
+          {
+            "name": "16oz Bottle",
+            "price": 0
+          },
+          {
+            "name": "32oz Bottle",
+            "price": 4
+          }
+        ]
+      }
+    }
+  }
+}

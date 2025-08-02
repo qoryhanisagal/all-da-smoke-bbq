@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react';
 import { ref, onValue, get } from 'firebase/database';
 import { database } from '../../config/firebase';
+import SidekicksCarousel from '../../components/SidekicksCarousel';
+import SaucesCarousel from '../../components/SaucesCarousel';
+import DrinksGrid from '../../components/DrinksGrid';
 
 export default function Menu() {
   const [menuData, setMenuData] = useState(null);
@@ -128,7 +131,7 @@ export default function Menu() {
         </div>
 
         {/* Menu Items */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
           {menuArray.map((item) => (
             <div
               key={item.firebaseKey}
@@ -147,6 +150,96 @@ export default function Menu() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Component Testing Section */}
+        <div className="divider my-12">
+          <h2 className="text-2xl font-bold">New Components Testing</h2>
+        </div>
+
+        {/* Sidekicks Carousel Test */}
+        <div className="mb-12">
+          <SidekicksCarousel 
+            title="Sidekicks Carousel - Standard View" 
+            collapsible={false}
+            showPrices={true}
+          />
+        </div>
+
+        {/* Sidekicks Carousel Collapsible Test */}
+        <div className="mb-12">
+          <SidekicksCarousel 
+            title="Sidekicks Carousel - Collapsible" 
+            collapsible={true}
+            showPrices={true}
+          />
+        </div>
+
+        {/* Sauces Carousel Test */}
+        <div className="mb-12">
+          <SaucesCarousel 
+            title="Sauces Carousel - Standard View"
+            collapsible={false}
+            showPrices={true}
+          />
+        </div>
+
+        {/* Sauces Carousel Collapsible Test */}
+        <div className="mb-12">
+          <SaucesCarousel 
+            title="Sauces Carousel - Collapsible"
+            collapsible={true}
+            showPrices={true}
+          />
+        </div>
+
+        {/* Drinks Grid Test - Compact */}
+        <div className="mb-12">
+          <DrinksGrid 
+            title="Drinks Grid - Compact View"
+            collapsible={false}
+            compact={true}
+          />
+        </div>
+
+        {/* Drinks Grid Test - Full */}
+        <div className="mb-12">
+          <DrinksGrid 
+            title="Drinks Grid - Full View"
+            collapsible={false}
+            compact={false}
+          />
+        </div>
+
+        {/* Drinks Grid Test - Collapsible */}
+        <div className="mb-12">
+          <DrinksGrid 
+            title="Drinks Grid - Collapsible"
+            collapsible={true}
+            compact={true}
+          />
+        </div>
+
+        {/* Combined Test - Menu Item Page Style */}
+        <div className="mb-12 bg-base-200 p-6 rounded-lg">
+          <h3 className="text-2xl font-bold mb-6">Menu Item Page Style Preview</h3>
+          <div className="space-y-8">
+            <SidekicksCarousel 
+              title="Sidekicks" 
+              collapsible={true}
+              showPrices={true}
+            />
+            <SaucesCarousel 
+              title="Add Our Signature Sauces"
+              collapsible={true}  
+              showPrices={true}
+            />
+            <DrinksGrid 
+              title="Add a Drink"
+              collapsible={true}
+              compact={true}
+            />
+          </div>
         </div>
 
         {/* Raw Data Preview */}
